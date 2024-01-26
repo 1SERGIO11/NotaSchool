@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Разборы</title>
+    <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/Плеер.css' %}" media="screen">
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    
+    <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'js/nicepage.js' %}" defer=""></script>
+    <meta name="generator" content="Nicepage 5.21.10, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Разборы">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-custom-color-4 u-header u-sticky u-sticky-436a u-header" id="sec-02f5"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">
+          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1" href="{% url 'home' %}">Not<span style="color: red;">a</span>School</a>
+        </p>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
+            <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-effect-duration u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-decoration u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'home' %}" style="padding: 10px 20px;">Главная</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'courses' %}" style="padding: 10px 20px;">Курсы</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'analysis' %}" style="padding: 10px 20px;">Разборы</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="https://vk.com/club223311934" target="_blank" style="padding: 10px 20px;">Поддержка</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'blog' %}" style="padding: 10px 20px;">Блог</a>
+            </li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home' %}">Главная</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'courses' %}">Курсы</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'analysis' %}">Разборы</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="https://vk.com/club223311934" target="_blank">Поддержка</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'blog' %}">Блог</a>
+                </li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        
+        <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+      </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
+border: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
+}</style>
+  <div class="u-grey-80 u-section-row u-sticky u-sticky-1b9c" id="sec-6d04"></div>
+    <section class="u-align-center u-clearfix u-grey-80 u-section-1" id="sec-03ef">
+      <div class="u-clearfix u-sheet u-sheet-2">
+        <nav class="u-menu u-menu-hamburger u-offcanvas u-menu-2" data-responsive-from="XL" data-submenu-level="on-click">
+          <div class="menu-collapse">
+            <a class="u-button-style u-file-icon u-nav-link u-file-icon-1" href="#">
+              <img src="{% static 'images/Меню.png' %}" alt="">
+            </a>
+          </div>
+          <div class="u-nav-container">
+            <ul class="u-nav u-unstyled"><li class="u-nav-item">
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html">Главная</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Блог.html">Блог</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Курсы.html">Курсы</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Разборы.html">Разборы</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="products/products.html">Магазин</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="blog/blog.html" style="padding-right: 20px;">Блог</a>
+</li></ul>
+          </div>
+          <div class="u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-custom-font u-nav u-popupmenu-items u-spacing-0 u-text-font u-text-hover-custom-color-3 u-unstyled u-nav-4">
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html">Главная</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Блог.html">Подписки</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Курсы.html">История</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Разборы.html">Понравившиеся</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="products/products.html">Смотреть позже</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="blog/blog.html">Блог</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <div class="u-form u-form-1">
+          <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;" source="email">
+            <div class="u-form-group u-form-name u-label-none">
+              <label for="name-ef64" class="u-label">Name</label>
+              <input type="text" id="name-ef64" name="search" class="u-border-white u-input u-input-rectangle u-none u-radius-7 u-text-white u-input-1" placeholder="Введите запрос" required="required">
+            </div>
+            <div class="u-form-group u-form-submit">
+              <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-gradient u-none u-radius-9 u-btn-1">Поиск</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success">#FormSendSuccess</div>
+            <div class="u-form-send-error u-form-send-message">#FormSendError</div>
+            <input type="hidden" value="" name="recaptchaResponse">
+            <input type="hidden" name="formServices" value="0bbb107b-514e-db7a-86d1-f92e85e7ded2">
+          </form>
+        </div>
+      </div></header>
+    <section class="u-align-center u-clearfix u-grey-80 u-section-1" id="sec-03ef">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-2 u-border-grey-75 u-container-style u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <video id="main-video" class="video-js vjs-default-skin" controls preload="metadata" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;" autoplay muted data-setup='{}'>
+              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <p class="vjs-no-js">
+                Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
+                браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
+              </p>
+            </video>
+          </div>
+        </div>
+        <div class="u-align-left u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-2">
+          <div class="u-container-layout u-container-layout-2">
+            <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
+              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <p class="vjs-no-js">
+                  Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
+                  браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
+              </p>
+          </video>
+          </div>
+        </div>
+        <h6 class="u-align-left u-text u-text-1">Название видео</h6>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-3">
+          <div class="u-container-layout u-container-layout-3">
+            <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
+              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <p class="vjs-no-js">
+                  Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
+                  браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
+              </p>
+          </video>
+          </div>
+        </div>
+        <h6 class="u-align-left u-text u-text-2">Название видео</h6>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-4">
+          <div class="u-container-layout u-container-layout-4">
+            <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
+              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <p class="vjs-no-js">
+                  Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
+                  браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
+              </p>
+          </video>
+          </div>
+        </div>
+        <h6 class="u-align-left u-text u-text-3">Название видео</h6>
+        <h4 class="u-align-left u-text u-text-4">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4><span class="u-file-icon u-hover-feature u-icon u-text-custom-color-3 u-icon-1" data-href="https://nicepage.com"><img src="{% static 'images/Лайк.png' %}" alt=""></span>
+        <p class="u-text u-text-default u-text-5">1млн. подписчиков</p>
+        <p class="u-text u-text-default u-text-6">Notaschool</p>
+        <img class="u-image u-image-circle u-preserve-proportions u-image-1" src="{% static 'images/NotaSchool.png' %}" alt="" data-image-width="1024" data-image-height="1024">
+        <a href="https://nicepage.com/wordpress-themes" class="u-active-palette-5-base u-border-none u-btn u-btn-round u-button-style u-custom-color-3 u-hover-palette-2-base u-radius-50 u-button1">Подписаться</a><span class="u-file-icon u-icon u-text-palette-2-base u-icon-2" data-href="https://nicepage.com"><img src="{% static 'images/Дизлайк.png' %}" alt=""></span>
+        <p class="u-text u-text-default u-text-7">500 тыс.</p>
+        <div class="u-container-style u-grey-75 u-group u-radius-18 u-shape-round u-group-5">
+          <div class="u-container-layout u-container-layout-5">
+            <p class="u-text u-text-default u-text-8">1 млн. просмотров</p>
+            <p class="u-text u-text-default u-text-9">21 час назад</p>
+            <p class="u-text u-text-10">Описание&nbsp;&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание</p>
+            <p class="u-text u-text-11">
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" data-href="https://nicepage.com">...ещё</a>
+            </p>
+          </div>
+        </div>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-6">
+          <div class="u-container-layout u-container-layout-6">
+            <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
+              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <p class="vjs-no-js">
+                  Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
+                  браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
+              </p>
+          </video>
+          </div>
+        </div>
+        <h6 class="u-align-left u-text u-text-12">Название видео</h6>
+        <h6 class="u-align-left u-text u-text-default u-text-13">10 000 комментариев</h6>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-7">
+          <div class="u-container-layout u-container-layout-7"></div>
+        </div>
+        <h6 class="u-align-left u-text u-text-14">Название видео</h6>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-8">
+          <div class="u-container-layout u-container-layout-8"></div>
+        </div>
+        <div class="u-container-style u-group u-shape-rectangle u-group-9">
+          <div class="u-container-layout u-container-layout-9">
+            <img class="u-image u-image-circle u-preserve-proportions u-image-2" src="{% static 'images/Юзер.png' %}" alt="" data-image-width="1280" data-image-height="1280">
+            <div class="u-form u-form-1">
+              <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="margin: -70px auto 0 -30px;">
+                <div class="u-form-email u-form-group u-label-top">
+                  <label for="email-1b95" class="u-form-control-hidden u-label"></label>
+                  <textarea id="email-1b95" name="comment" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none u-input-1" required="" placeholder="Введите комментарий" style="overflow:hidden; resize:none;"></textarea>
+                </div>
+                <div class="u-align-right u-form-group u-form-submit u-label-top" id = "submit-button">
+                  <input type="submit" id = "submit-button" value="submit" class="u-form-control-hidden">
+                  <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-radius-22 u-btn-3">Отправить</a>
+                </div>
+                <div class="u-form-send-message u-form-send-success"> Спасибо! Ваше сообщение отправлено. </div>
+                <div class="u-form-send-error u-form-send-message"> Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз. </div>
+                <input type="hidden" value="" name="recaptchaResponse">
+                <input type="hidden" name="formServices" value="0bbb107b-514e-db7a-86d1-f92e85e7ded2">
+              </form>
+            </div>
+            <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-10">
+              <div class="u-container-layout u-container-layout-10">
+                <img class="custom-expanded u-image u-image-circle u-preserve-proportions u-image-3" src="{% static 'images/Юзер.png' %}" alt="" data-image-width="1280" data-image-height="1280">
+                <p class="u-text u-text-15">Пользователь</p>
+                <p class="u-text u-text-16">Лучший в мире разбор! Научился играть кузнечика за 1 секунду</p>
+                <p class="u-text u-text-grey-50 u-text-17">1 неделю назад</p>
+              </div>
+            </div>
+            <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-11">
+              <div class="u-container-layout u-container-layout-11">
+                <img class="custom-expanded u-image u-image-circle u-preserve-proportions u-image-4" src="{% static 'images/Юзер.png' %}" alt="" data-image-width="1280" data-image-height="1280">
+                <p class="u-text u-text-18">Пользователь</p>
+                <p class="u-text u-text-19">Лучший в мире разбор! Научился играть кузнечика за 1 секунду</p>
+                <p class="u-text u-text-grey-50 u-text-20">1 неделю назад</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h6 class="u-align-left u-text u-text-21">Название видео</h6>
+      </div>
+      
+    </section>
+    
+    
+    
+    <footer class="u-clearfix u-footer u-grey-80" id="sec-4eee"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-text u-text-default u-text-1">NotaSchool 2023</p>
+      </div></footer>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Инициализация основного видео-плеера
+          var mainPlayer = videojs(document.getElementById('main-video'), {
+            controls: true,
+            autoplay: true,
+            muted: false,
+            bigPlayButton: false,
+            textTrackDisplay: false,
+            errorDisplay: false,
+            preload: "metadata",
+          });
+      
+          // Обработка готовности основного видео-плеера
+          mainPlayer.on('ready', function() {
+            if (this.bigPlayButton && typeof this.bigPlayButton.hide === 'function') {
+              this.bigPlayButton.hide();
+            }
+          });
+      
+          // Инициализация других видео-плееров
+          Array.from(document.querySelectorAll('.video-js')).forEach(function(player) {
+            if (player.id !== 'main-video') {
+              var playerInstance = videojs(player, {
+                controls: false, // Отключаем контролы
+                bigPlayButton: false,
+                textTrackDisplay: false,
+                errorDisplay: false,
+                preload: "metadata",
+              });
+      
+              // Воспроизведение при наведении мыши
+              player.addEventListener('mouseover', function() {
+                playerInstance.muted(true); // Выключить звук
+                playerInstance.play(); // Воспроизвести видео
+                playerInstance.controls(false);
+              });
+      
+              // Остановка при уходе мыши
+              player.addEventListener('mouseout', function() {
+                playerInstance.pause(); // Приостановить воспроизведение
+                playerInstance.currentTime(0); // Сбросить время к началу
+                playerInstance.load(); // Перезагрузить видео для отображения превьюшки
+              });
+            }
+          });
+        });
+      </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  var textarea = document.getElementById('email-1b95');
+  textarea.addEventListener('input', autoResize, false);
+
+  function autoResize() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+  }
+
+  // Вызовите autoResize, чтобы выставить начальную высоту при загрузке страницы
+  autoResize.call(textarea);
+});
+      </script>
+</body></html>

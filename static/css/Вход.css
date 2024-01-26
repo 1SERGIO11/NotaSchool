@@ -1,0 +1,72 @@
+ .u-section-1 {
+  background-image: url("/static/images/Вход.jpg");
+  background-position: 50% 50%;
+  background-size: cover; /* Покрывает весь элемент */
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 700px;
+}
+
+.u-section-1 .u-text-1 {
+  font-weight: 700;
+  text-shadow: 7px 7px 12px rgba(0,0,0,0.4);
+  margin: 143px auto 0;
+}
+
+.u-section-1 .u-form-1 {
+  height: 196px;
+  box-shadow: 5px 5px 20px 17px rgba(0,0,0,0.55);
+  width: 570px;
+  margin: 56px auto 0;
+}
+
+.u-section-1 .u-form-group-1 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-form-group-2 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-btn-1 {
+  background-image: none;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.u-section-1 .u-text-2 {
+  margin: 27px auto 60px;
+}
+
+.u-section-1 .u-btn-2 {
+  background-image: none;
+  font-weight: 700;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 863px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 843px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 710px;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 340px;
+  }
+}

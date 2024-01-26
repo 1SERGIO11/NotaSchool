@@ -1,0 +1,136 @@
+ .u-section-1 {
+  background-image: url('/static/images/Вход.jpg');
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 700px;
+}
+
+.u-section-1 .u-text-1 {
+  font-size: 3.75rem;
+  font-weight: 700;
+  text-shadow: 9px 7px 8px rgba(0,0,0,0.4);
+  margin: 139px auto 0;
+}
+
+.u-section-1 .u-form-1 {
+  height: 193px;
+  box-shadow: -2px 1px 16px 8px rgba(0,0,0,1);
+  width: 570px;
+  margin: 49px auto 0;
+}
+
+.u-section-1 .u-form-group-1 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-input-1 {
+  box-shadow: 4px 6px 6px 0 rgba(0,0,0,0.4);
+}
+
+.u-section-1 .u-form-group-2 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-input-2 {
+  box-shadow: 4px 6px 6px 0 rgba(0,0,0,0.4);
+}
+
+.u-section-1 .u-form-group-3 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-input-3 {
+  box-shadow: 4px 6px 6px 0 rgba(0,0,0,0.4);
+}
+
+.u-section-1 .u-form-group-4 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-input-4 {
+  box-shadow: 4px 6px 6px 0 rgba(0,0,0,0.4);
+}
+
+.u-section-1 .u-form-group-5 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-input-5 {
+  box-shadow: 4px 6px 6px 0 rgba(0,0,0,0.4);
+}
+
+.u-section-1 .u-form-group-6 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-input-6 {
+  box-shadow: 4px 6px 6px 0 rgba(0,0,0,0.4);
+}
+
+.u-section-1 .u-btn-1 {
+  background-image: none;
+  font-weight: 700;
+  box-shadow: 6px 9px 20px 0px rgba(0,0,0,0.4);
+}
+
+.u-section-1 .u-text-2 {
+  text-shadow: 3px 5px 16px rgba(0,0,0,0.4);
+  margin: 26px auto 60px;
+}
+
+.u-section-1 .u-btn-2 {
+  background-image: none;
+  font-weight: 700;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+   .u-section-1 {
+    background-position: 50% 50%;
+  }
+
+  .u-section-1 .u-sheet-1 {
+    min-height: 577px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 442px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 332px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 3rem;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 209px;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 2.25rem;
+  }
+
+  .u-section-1 .u-form-1 {
+    width: 340px;
+  }
+}
+.u-form-send-error {
+  background: #62C584;
+}
+.u-form-send-success {
+  background: #62C584;
+}

@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Профиль, Имя Фамилия">
+    <meta name="description" content="">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{% static 'css/nicepage-u.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/Профиль.css' %}" media="screen">
+    <script type="text/javascript" src="{% static 'js/jquery-u.js' %}"></script>
+    
+    <script class="u-script" type="text/javascript" src="{% static 'js/jquery-u.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'js/nicepage-u.js' %}" defer=""></script>
+    <meta name="generator" content="Nicepage 5.21.10, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "NotaSchool_register"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Профиль">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-custom-color-4 u-header u-sticky u-sticky-436a u-header" id="sec-02f5"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">
+          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1" href="{% url 'user_home' %}">Not<span style="color: red;">a</span>School</a>
+        </p>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
+            <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-effect-duration u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-decoration u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'user_home' %}" style="padding: 10px 20px;">Главная</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'courses' %}" style="padding: 10px 20px;">Курсы</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'analysis' %}" style="padding: 10px 20px;">Разборы</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="https://vk.com/club223311934" target="_blank" style="padding: 10px 20px;">Поддержка</a>
+            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'blog' %}" style="padding: 10px 20px;">Блог</a>
+            </li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'user_home' %}">Главная</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'courses' %}">Курсы</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'analysis' %}">Разборы</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="https://vk.com/club223311934" target="_blank">Поддержка</a>
+                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'blog' %}">Блог</a>
+                </li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <img class="u-hover-feature u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{% static 'images/Профиль.png' %}" alt="" data-image-width="512" data-image-height="512" data-href="{% url 'profile' %}">
+      </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
+borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
+}</style></header>
+    <section class="u-clearfix u-grey-90 u-section-1" id="sec-5155">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-1">Профиль</h1>
+        <a href="{% url 'home' %}" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-3-base u-radius-50 u-btn-1"><span class="u-file-icon u-icon u-icon-1"><img src="{% static 'images/Выход.png' %}" alt=""></span>&nbsp;Выход
+        </a>
+        <div class="custom-expanded u-tabs u-tabs-1">
+          <ul class="u-border-2 u-border-grey-75 u-spacing-14 u-tab-list u-unstyled" role="tablist">
+            <li class="u-tab-item" role="presentation">
+              <a class="active u-active-custom-color-3 u-border-2 u-border-active-custom-color-3 u-border-grey-40 u-border-hover-custom-color-3 u-button-style u-custom-font u-font-lato u-radius-50 u-tab-link" id="link-tab-fad9" href="#tab-fad9" role="tab" aria-controls="tab-fad9" aria-selected="true">Профиль</a>
+            </li>
+            <li class="u-tab-item" role="presentation">
+              <a class="u-active-custom-color-3 u-border-2 u-border-active-custom-color-3 u-border-grey-40 u-border-hover-custom-color-3 u-button-style u-custom-font u-font-lato u-radius-50 u-tab-link" id="link-tab-b217" href="#tab-b217" role="tab" aria-controls="tab-b217" aria-selected="false">Настройки</a>
+            </li>
+            <li class="u-tab-item" role="presentation">
+              <a class="u-active-custom-color-3 u-border-2 u-border-active-custom-color-3 u-border-grey-40 u-border-hover-custom-color-3 u-button-style u-custom-font u-font-lato u-radius-50 u-tab-link" id="link-tab-4449" href="#tab-4449" role="tab" aria-controls="tab-4449" aria-selected="false">Подписки</a>
+            </li>
+          </ul>
+          <div class="u-tab-content">
+            <div class="u-container-style u-tab-active u-tab-pane" id="tab-fad9" role="tabpanel" aria-labelledby="link-tab-fad9">
+              <div class="u-container-layout u-valign-top u-container-layout-1">
+                <div class="u-border-2 u-border-grey-10 u-container-style u-grey-80 u-group u-radius-33 u-shape-round u-group-1">
+                  <div class="u-container-layout u-container-layout-2">
+                    <img src="{% static 'images/Фото профиля.png' %}" class="u-image u-image-circle u-preserve-proportions u-image-1" alt="" data-image-width="531" data-image-height="531"></img>
+                    <h2 class="u-text u-text-default u-text-2">Имя Фамилия</h2>
+                    <p class="u-text u-text-default u-text-3">Никнейм</p>
+                  </div>
+                </div>
+                <div class="u-border-2 u-border-grey-5 u-form u-grey-80 u-radius-39 u-form-1">
+                  <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 31px;">
+                    <p class="u-form-group u-form-text u-text u-text-4">Редактировать профиль</p>
+                    <div class="u-form-group u-form-name u-form-partition-factor-2">
+                      <label for="name-b8c5" class="u-label">Имя</label>
+                      <input type="text" placeholder="Введите Ваше имя" id="name-b8c5" name="name" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="">
+                    </div>
+                    <div class="u-form-group u-form-partition-factor-2 u-form-group-3">
+                      <label for="text-7f39" class="u-label">Фамилия</label>
+                      <input type="text" placeholder="Введите Вашу фамилию" id="text-7f39" name="text" class="u-grey-60 u-input u-input-rectangle u-radius-11">
+                    </div>
+                    <div class="u-form-group u-form-select u-form-group-4">
+                      <label for="select-769e" class="u-label">Пол</label>
+                      <div class="u-form-select-wrapper">
+                        <select id="select-769e" name="select" class="u-grey-60 u-input u-input-rectangle u-radius-11">
+                          <option value="Мужской" data-calc="">Мужской</option>
+                          <option value="Женский" data-calc="">Женский</option>
+                        </select>
+                        <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+                      </div>
+                    </div>
+                    <div class="u-form-date u-form-group u-form-group-5">
+                      <label for="date-135f" class="u-label">Дата рождения</label>
+                      <input type="text" placeholder="ММ/ДД/ГГГГ" id="date-135f" name="date" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="" data-date-format="mm/dd/yyyy">
+                    </div>
+                    <div class="u-form-group u-form-phone u-form-group-6">
+                      <label for="phone-3e5e" class="u-label">Телефон</label>
+                      <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Телефон в формате +7(917)0500070" id="phone-3e5e" name="phone" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="">
+                    </div>
+                    <div class="u-form-email u-form-group">
+                      <label for="email-b8c5" class="u-label">Эл. почта</label>
+                      <input type="email" placeholder="Введите Ваш email адрес" id="email-b8c5" name="email" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="">
+                    </div>
+                    <div class="u-align-left u-form-group u-form-submit">
+                      <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-3-base u-radius-14 u-btn-2">Сохранить</a>
+                      <input type="submit" value="submit" class="u-form-control-hidden">
+                    </div>
+                    <div class="u-form-send-message u-form-send-success"> Спасибо! Ваше сообщение отправлено. </div>
+                    <div class="u-form-send-error u-form-send-message"> Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз. </div>
+                    <input type="hidden" value="" name="recaptchaResponse">
+                    <input type="hidden" name="formServices" value="0bbb107b-514e-db7a-86d1-f92e85e7ded2">
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="u-container-style u-tab-pane" id="tab-b217" role="tabpanel" aria-labelledby="link-tab-b217">
+              <div class="u-container-layout u-container-layout-3"></div>
+            </div>
+            <div class="u-container-style u-tab-pane" id="tab-4449" role="tabpanel" aria-labelledby="link-tab-4449">
+              <div class="u-container-layout u-container-layout-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-clearfix u-footer u-grey-80" id="sec-4eee"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-text u-text-default u-text-1">NotaSchool 2023</p>
+      </div></footer>
+  
+</body></html>

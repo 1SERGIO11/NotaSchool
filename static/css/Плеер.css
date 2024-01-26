@@ -1,0 +1,727 @@
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-button1{
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  background-image: none;
+  margin: -57px auto 0 225px;
+}
+
+.video-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important; /* Важно, чтобы переопределить любые другие стили */
+  height: 100% !important;
+}
+.video-js .vjs-poster {
+  object-fit: cover;
+  position: static !important;
+}
+.u-header .u-btn-1 {
+  padding: 7px 20px; /* Устанавливаете необходимые значения */
+  font-weight: 700;
+  background-image: none;
+}
+
+.u-input {
+  padding: 7px 12px !important;
+}
+.u-menu-2 {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 10px;
+  left: -100px;
+  z-index: 100; /* Убедитесь, что меню находится над другими элементами */
+}
+.u-section-1 .u-sheet-1 {
+  min-height: 2422px;
+}
+
+.u-section-1 .u-group-1 {
+  width: 900px;
+  min-height: 529px;
+  height: auto;
+  margin: 0 auto 0 0;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 0px;
+  position: relative; /* Для позиционирования видео */
+  overflow: hidden; /* Если видео выйдет за границы, оно будет обрезано */
+}
+
+.u-section-1 .u-group-2 {
+  width: 235px;
+  min-height: 132px;
+  height: auto;
+  margin: -529px -23px 0 auto;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 0px;
+  position: relative; /* Для позиционирования видео */
+  overflow: hidden; /* Если видео выйдет за границы, оно будет обрезано */
+}
+
+.u-section-1 .u-text-1 {
+  margin: 5px -18px 0 926px;
+}
+
+.u-section-1 .u-group-3 {
+  width: 235px;
+  min-height: 132px;
+  height: auto;
+  margin: 34px -23px 0 auto;
+}
+
+.u-section-1 .u-container-layout-3 {
+  padding: 0px;
+  position: relative; /* Для позиционирования видео */
+  overflow: hidden; /* Если видео выйдет за границы, оно будет обрезано */
+}
+
+.u-section-1 .u-text-2 {
+  margin: 7px -18px 0 925px;
+}
+
+.u-section-1 .u-group-4 {
+  width: 235px;
+  min-height: 132px;
+  height: auto;
+  margin: 34px -21px 0 auto;
+}
+
+.u-section-1 .u-container-layout-4 {
+  padding: 0px;
+  position: relative; /* Для позиционирования видео */
+  overflow: hidden; /* Если видео выйдет за границы, оно будет обрезано */
+}
+
+.u-section-1 .u-text-3 {
+  margin: 5px -18px 0 929px;
+}
+
+.u-section-1 .u-text-4 {
+  font-weight: 700;
+  margin: -10px 241px 0 0;
+}
+
+.u-section-1 .u-icon-1 {
+  width: 45px;
+  height: 45px;
+  transition-duration: 0.5s;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0);
+  text-shadow: 0px 0px 0px rgba(0,0,0,0);
+  transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+  margin: 7px auto 0 525px;
+  padding: 0;
+}
+
+.u-section-1 .u-text-5 {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin: -20px auto 0 57px;
+}
+
+.u-section-1 .u-text-6 {
+  font-weight: 700;
+  margin: -45px auto 0 59px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 57px;
+  height: 57px;
+  margin: -29px auto 0 0;
+}
+
+
+.u-section-1 .u-icon-2 {
+  width: 45px;
+  height: 45px;
+  margin: -42px 424px 0 auto;
+}
+
+.u-section-1 .u-text-7 {
+  font-weight: 700;
+  margin: -39px 485px 0 auto;
+}
+
+.u-section-1 .u-group-5 {
+  width: 898px;
+  min-height: 109px;
+  height: auto;
+  margin: 31px auto 0 0;
+}
+
+.u-section-1 .u-container-layout-5 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.u-section-1 .u-btn-1 {
+  font-weight: 700;
+  background-image: linear-gradient(#ffce00, #db545a);
+}
+.u-section-1 .u-text-8 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 auto 0 7px;
+}
+
+.u-section-1 .u-text-9 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: -22px auto 0 156px;
+}
+
+.u-section-1 .u-text-10 {
+  font-size: 1rem;
+  margin: 0 7px;
+}
+
+.u-section-1 .u-text-11 {
+  font-size: 1rem;
+  margin: 0 830px 0 7px;
+}
+
+.u-section-1 .u-btn-2 {
+  background-image: none;
+  padding: 0;
+}
+
+.u-section-1 .u-group-6 {
+  width: 235px;
+  min-height: 132px;
+  height: auto;
+  margin: -169px -20px 0 auto;
+}
+
+.u-section-1 .u-container-layout-6 {
+  padding: 0px;
+  position: relative; /* Для позиционирования видео */
+  overflow: hidden; /* Если видео выйдет за границы, оно будет обрезано */
+}
+
+.u-section-1 .u-text-12 {
+  margin: 7px -18px 0 928px;
+}
+
+.u-section-1 .u-text-13 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 23px auto 0 0;
+}
+
+.u-section-1 .u-group-7 {
+  width: 235px;
+  min-height: 132px;
+  height: auto;
+  margin: -11px -20px 0 auto;
+}
+
+.u-section-1 .u-container-layout-7 {
+  padding: 0px;
+  position: relative; /* Для позиционирования видео */
+  overflow: hidden; /* Если видео выйдет за границы, оно будет обрезано */
+}
+
+.u-section-1 .u-text-14 {
+  margin: 7px -18px 0 928px;
+}
+
+.u-section-1 .u-group-8 {
+  width: 235px;
+  min-height: 132px;
+  height: auto;
+  margin: 36px -20px 0 auto;
+}
+
+.u-section-1 .u-container-layout-8 {
+  padding: 0px;
+  position: relative; /* Для позиционирования видео */
+  overflow: hidden; /* Если видео выйдет за границы, оно будет обрезано */
+}
+
+.u-section-1 .u-group-9 {
+  width: 895px;
+  min-height: 642px;
+  height: auto;
+  margin: -304px auto 0 0;
+}
+
+.u-section-1 .u-container-layout-9 {
+  padding: 0;
+}
+
+.u-section-1 .u-image-2 {
+  width: 58px;
+  height: 58px;
+  margin: 15px auto 0 5px;
+}
+
+.u-section-1 .u-form-1 {
+  height: 78px;
+  width: 655px;
+  margin: 18px auto 0;
+}
+
+.u-section-1 .u-input-1 {
+  height: 39px !important;
+}
+
+.u-section-1 .u-btn-3 {
+  padding-top: 9px;
+  padding-bottom: 11px;
+  background-image: none;
+}
+
+.u-section-1 .u-group-10 {
+  min-height: 107px;
+  margin-top: -8px;
+  margin-bottom: 0;
+  height: auto;
+}
+
+.u-section-1 .u-container-layout-10 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.u-section-1 .u-image-3 {
+  width: 59px;
+  height: 59px;
+  margin: 10px auto 0 7px;
+}
+
+.u-section-1 .u-text-15 {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: -59px 697px 0 72px;
+}
+
+.u-section-1 .u-text-16 {
+  margin: -1px 0 0 72px;
+}
+
+.u-section-1 .u-text-17 {
+  font-size: 0.875rem;
+  margin: -53px 0 0 198px;
+}
+
+.u-section-1 .u-group-11 {
+  min-height: 107px;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-container-layout-11 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.u-section-1 .u-image-4 {
+  width: 59px;
+  height: 59px;
+  margin: 10px auto 0 7px;
+}
+
+.u-section-1 .u-text-18 {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: -59px 453px 0 72px;
+}
+
+.u-section-1 .u-text-19 {
+  margin: -1px 0 0 72px;
+}
+
+.u-section-1 .u-text-20 {
+  font-size: 0.875rem;
+  margin: -53px 0 0 198px;
+}
+
+.u-section-1 .u-text-21 {
+  margin: -332px -18px 60px 928px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-group-1 {
+    height: auto;
+  }
+
+  .u-section-1 .u-group-2 {
+    height: auto;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-left: 826px;
+  }
+
+  .u-section-1 .u-group-3 {
+    height: auto;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-left: 825px;
+  }
+
+  .u-section-1 .u-group-4 {
+    height: auto;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-left: 829px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 41px;
+  }
+
+  .u-section-1 .u-icon-1 {
+    margin-left: 433px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-left: 25px;
+  }
+
+  .u-section-1 .u-icon-2 {
+    margin-right: 350px;
+  }
+
+  .u-section-1 .u-text-7 {
+    margin-right: 400px;
+  }
+
+  .u-section-1 .u-group-5 {
+    height: auto;
+  }
+
+  .u-section-1 .u-container-layout-5 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .u-section-1 .u-group-6 {
+    height: auto;
+  }
+
+  .u-section-1 .u-text-12 {
+    margin-left: 828px;
+  }
+
+  .u-section-1 .u-group-7 {
+    height: auto;
+  }
+
+  .u-section-1 .u-text-14 {
+    margin-left: 828px;
+  }
+
+  .u-section-1 .u-group-8 {
+    height: auto;
+  }
+
+  .u-section-1 .u-group-9 {
+    height: auto;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-top: -63px;
+  }
+
+  .u-section-1 .u-group-10 {
+    height: auto;
+  }
+
+  .u-section-1 .u-group-11 {
+    height: auto;
+  }
+
+  .u-section-1 .u-text-18 {
+    margin-right: 697px;
+  }
+
+  .u-section-1 .u-text-21 {
+    margin-left: 828px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-group-1 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-left: 716px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-left: 715px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-left: 719px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-icon-1 {
+    margin-left: 332px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-icon-2 {
+    margin-right: 268px;
+  }
+
+  .u-section-1 .u-text-7 {
+    margin-right: 306px;
+  }
+
+  .u-section-1 .u-group-5 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-text-10 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-text-11 {
+    margin-right: 659px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-text-12 {
+    margin-left: 718px;
+  }
+
+  .u-section-1 .u-text-14 {
+    margin-left: 718px;
+  }
+
+  .u-section-1 .u-group-9 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-text-15 {
+    margin-right: 594px;
+  }
+
+  .u-section-1 .u-text-17 {
+    margin-left: 23px;
+  }
+
+  .u-section-1 .u-text-18 {
+    margin-right: 594px;
+  }
+
+  .u-section-1 .u-text-20 {
+    margin-left: 23px;
+  }
+
+  .u-section-1 .u-text-21 {
+    margin-left: 718px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-group-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-left: 626px;
+  }
+
+  .u-section-1 .u-container-layout-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-left: 625px;
+  }
+
+  .u-section-1 .u-container-layout-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-left: 629px;
+  }
+
+  .u-section-1 .u-icon-1 {
+    margin-left: 249px;
+  }
+
+  .u-section-1 .u-icon-2 {
+    margin-right: 201px;
+  }
+
+  .u-section-1 .u-text-7 {
+    margin-right: 230px;
+  }
+
+  .u-section-1 .u-group-5 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-text-11 {
+    margin-right: 479px;
+  }
+
+  .u-section-1 .u-container-layout-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-12 {
+    margin-left: 628px;
+  }
+
+  .u-section-1 .u-container-layout-7 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-14 {
+    margin-left: 628px;
+  }
+
+  .u-section-1 .u-container-layout-8 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-group-9 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-text-15 {
+    margin-right: 414px;
+  }
+
+  .u-section-1 .u-text-17 {
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-text-18 {
+    margin-right: 414px;
+  }
+
+  .u-section-1 .u-text-20 {
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-text-21 {
+    margin-left: 628px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-group-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-left: 526px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-left: 525px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-left: 529px;
+  }
+
+  .u-section-1 .u-icon-1 {
+    margin-left: 157px;
+  }
+
+  .u-section-1 .u-icon-2 {
+    margin-right: 127px;
+  }
+
+  .u-section-1 .u-text-7 {
+    margin-right: 145px;
+  }
+
+  .u-section-1 .u-group-5 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-text-9 {
+    margin-left: 98px;
+  }
+
+  .u-section-1 .u-text-11 {
+    margin-right: 279px;
+  }
+
+  .u-section-1 .u-text-12 {
+    margin-left: 528px;
+  }
+
+  .u-section-1 .u-text-14 {
+    margin-left: 528px;
+  }
+
+  .u-section-1 .u-group-9 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-text-15 {
+    margin-right: 214px;
+  }
+
+  .u-section-1 .u-text-18 {
+    margin-right: 214px;
+  }
+
+  .u-section-1 .u-text-21 {
+    margin-left: 528px;
+  }
+}
+
+.u-section-1 .u-icon-1,
+.u-section-1 .u-icon-1:before,
+.u-section-1 .u-icon-1 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, image-zoom, background-size, background-position;
+}
+
+.u-section-1 .u-container-layout:hover .u-icon-1 {
+  transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
+}
+
+.u-container-layout.hover .u-section-1 .u-icon-1 {
+  transform: rotate(0deg) scale(1) translateX(0px) translateY(0px) !important;
+}

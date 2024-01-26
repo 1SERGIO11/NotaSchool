@@ -1,0 +1,191 @@
+ .u-section-1 {
+  background-image: none;
+}
+.video-tab {
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Распределяет пространство между карточками */
+  gap: 20px;
+}
+.u-header .u-btn-1 {
+  padding: 7px 20px; /* Устанавливаете необходимые значения */
+  font-weight: 700;
+  background-image: none;
+}
+.u-input {
+  padding: 7px 12px !important;
+}
+.u-menu-2 {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 10px;
+  left: -100px;
+  z-index: 100; /* Убедитесь, что меню находится над другими элементами */
+}
+.video-row {
+  display: flex;
+  flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
+  justify-content: space-around; /* Распределяет элементы равномерно */
+}
+
+.video-card {
+  margin: 10px; /* Отступы вокруг карточек */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Для адаптивности */
+@media (max-width: 768px) {
+  .video-row {
+    flex: 0 1 calc(50% - 20px);
+  }
+}
+.video-info {
+  padding: 10px; /* или сколько вам нужно */
+}
+
+.video-title {
+  margin: 0;
+  font-size: 1rem; /* размер шрифта для названия */
+  font-weight: bold; /* жирное начертание для названия */
+  word-wrap: break-word; /* Перенос слов, если они не помещаются в контейнер */
+  max-width: 280px;
+}
+
+.video-author {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  margin: 5px 0;
+  font-size: 0.875rem; /* меньший размер шрифта для автора */
+  color: #555; /* цвет шрифта для автора */
+}
+
+.video-meta {
+  font-size: 0.875rem; /* размер шрифта для мета-информации */
+  color: #555; /* цвет шрифта для мета-информации */
+}
+
+.video-views,
+.video-time {
+  margin-right: 10px; /* отступ справа */
+}
+.video-js {
+  overflow: hidden; /* Обрезаем все, что выходит за рамки контейнера */
+}
+/* Для адаптивности на маленьких экранах */
+@media (max-width: 768px) {
+  .video-card {
+    width: 46%; /* Ширина карточки для мобильных устройств */
+  }
+}
+
+@media (max-width: 480px) {
+  .video-card {
+    width: 94%; /* Ширина карточки для очень маленьких устройств */
+  }
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 2423px;
+}
+
+.u-section-1 .u-form-1 {
+  height: 78px;
+  width: 655px;
+  margin: 18px auto 0;
+}
+
+.u-section-1 .u-input-1 {
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-btn-1 {
+  font-weight: 700;
+  background-image: linear-gradient(#ffce00, #db545a);
+}
+
+.u-section-1 .u-tabs-1 {
+  min-height: 1299px;
+  height: auto;
+  margin-top: 14px;
+  margin-bottom: 60px;
+}
+
+.u-section-1 .u-tab-link-1 {
+  font-size: 1rem;
+  background-image: none;
+  font-weight: 600;
+  padding: 10px 25px;
+}
+
+.u-section-1 .u-tab-link-2 {
+  font-size: 1rem;
+  background-image: none;
+  font-weight: 600;
+  padding: 10px 25px;
+}
+
+.u-section-1 .u-tab-link-3 {
+  font-size: 1rem;
+  background-image: none;
+  font-weight: 600;
+  padding: 10px 25px;
+}
+
+.u-section-1 .u-tab-link-4 {
+  font-size: 1rem;
+  background-image: none;
+  font-weight: 600;
+  padding: 10px 25px;
+}
+
+.u-section-1 .u-tab-pane-1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 30px 0;
+}
+
+.u-section-1 .u-tab-pane-2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 0;
+}
+
+.u-section-1 .u-tab-pane-3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-container-layout-3 {
+  padding: 30px 0;
+}
+
+.u-section-1 .u-tab-pane-4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-container-layout-4 {
+  padding: 30px 0;
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-form-1 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-form-1 {
+    width: 340px;
+  }
+}
