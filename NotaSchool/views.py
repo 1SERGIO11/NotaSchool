@@ -5,7 +5,15 @@ from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404
+from .models import Video
 
+def player_view(request, video_id):
+    video = get_object_or_404(Video, pk=video_id)
+    return render(request, 'Плеер.html', {'video': video})
+def analysis_page(request):
+    videos = Video.objects.all()  # Получаем все видео из базы данных
+    return render(request, 'Разборы.html', {'videos': videos})
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -76,6 +84,3 @@ def user_home(request):
 def profile(request):
     # Здесь можно добавить логику, например, проверку авторизации пользователя
     return render(request, 'Профиль.html')
-def player_view(request):
-    # Логика для страницы 'Плеер.html', если она вам нужна
-    return render(request, 'Плеер.html')

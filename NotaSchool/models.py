@@ -9,8 +9,8 @@ class Video(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     view_count = models.IntegerField(default=0)
     like_count = models.IntegerField(default=0)
-    video_url = models.URLField()
-    preview_url = models.URLField()
+    video_url = models.FileField(upload_to='videos/')
+    preview_url = models.ImageField(upload_to='images/')
 
 
     def __str__(self):

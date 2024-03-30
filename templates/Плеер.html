@@ -6,6 +6,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Разборы</title>
+    <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Плеер.css' %}" media="screen">
     <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
@@ -126,8 +127,8 @@ border: top right bottom left !important; border-color: #404040 !important; bord
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-border-2 u-border-grey-75 u-container-style u-group u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <video id="main-video" class="video-js vjs-default-skin" controls preload="metadata" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;" autoplay muted data-setup='{}'>
-              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+            <video id="main-video" class="video-js vjs-default-skin" controls preload="metadata" width="100%" height="100%" poster="{{ video.preview_url.url }}" style="object-fit: cover;" autoplay muted data-setup='{}'>
+              <source src = "{{ video.video_url.url }}" type="video/mp4" />
               <p class="vjs-no-js">
                 Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
                 браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
@@ -138,7 +139,7 @@ border: top right bottom left !important; border-color: #404040 !important; bord
         <div class="u-align-left u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-2">
           <div class="u-container-layout u-container-layout-2">
             <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
-              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <source src="{% static 'videos/Analysis-1.mp4' %}" type="video/mp4" />
               <p class="vjs-no-js">
                   Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
                   браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
@@ -150,7 +151,7 @@ border: top right bottom left !important; border-color: #404040 !important; bord
         <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-3">
           <div class="u-container-layout u-container-layout-3">
             <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
-              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <source src="{% static 'videos/Analysis-1.mp4' %}" type="video/mp4" />
               <p class="vjs-no-js">
                   Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
                   браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
@@ -162,7 +163,7 @@ border: top right bottom left !important; border-color: #404040 !important; bord
         <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-4">
           <div class="u-container-layout u-container-layout-4">
             <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
-              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <source src="{% static 'videos/Analysis-1.mp4' %}" type="video/mp4" />
               <p class="vjs-no-js">
                   Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
                   браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
@@ -171,26 +172,26 @@ border: top right bottom left !important; border-color: #404040 !important; bord
           </div>
         </div>
         <h6 class="u-align-left u-text u-text-3">Название видео</h6>
-        <h4 class="u-align-left u-text u-text-4">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4><span class="u-file-icon u-hover-feature u-icon u-text-custom-color-3 u-icon-1" data-href="https://nicepage.com"><img src="{% static 'images/Лайк.png' %}" alt=""></span>
+        <h4 class="u-align-left u-text u-text-4">{{ video.title }}</h4><span class="u-file-icon u-hover-feature u-icon u-text-custom-color-3 u-icon-1" data-href="https://nicepage.com"><img src="{% static 'images/Лайк.png' %}" alt=""></span>
         <p class="u-text u-text-default u-text-5">1млн. подписчиков</p>
-        <p class="u-text u-text-default u-text-6">Notaschool</p>
+        <p class="u-text u-text-default u-text-6">{{ video.author.username }}</p>
         <img class="u-image u-image-circle u-preserve-proportions u-image-1" src="{% static 'images/NotaSchool.png' %}" alt="" data-image-width="1024" data-image-height="1024">
         <a href="https://nicepage.com/wordpress-themes" class="u-active-palette-5-base u-border-none u-btn u-btn-round u-button-style u-custom-color-3 u-hover-palette-2-base u-radius-50 u-button1">Подписаться</a><span class="u-file-icon u-icon u-text-palette-2-base u-icon-2" data-href="https://nicepage.com"><img src="{% static 'images/Дизлайк.png' %}" alt=""></span>
         <p class="u-text u-text-default u-text-7">500 тыс.</p>
         <div class="u-container-style u-grey-75 u-group u-radius-18 u-shape-round u-group-5">
           <div class="u-container-layout u-container-layout-5">
-            <p class="u-text u-text-default u-text-8">1 млн. просмотров</p>
-            <p class="u-text u-text-default u-text-9">21 час назад</p>
-            <p class="u-text u-text-10">Описание&nbsp;&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание&nbsp;Описание</p>
+            <p class="u-text u-text-default u-text-8">{{ video.view_count }} просмотров</p>
+            <p class="u-text u-text-default u-text-9">{{ video.creation_date }}</p>
+            <p class="u-text u-text-10">{{ video.description }}</p>
             <p class="u-text u-text-11">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" data-href="https://nicepage.com">...ещё</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" >...ещё</a>
             </p>
           </div>
         </div>
         <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-6">
           <div class="u-container-layout u-container-layout-6">
             <video id="your_video_id" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="{% static 'images/Разбор-1.jpg' %}" style="object-fit: cover;">
-              <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
+              <source src="{% static 'videos/Analysis-1.mp4' %}" type="video/mp4" />
               <p class="vjs-no-js">
                   Для просмотра этого видео включите JavaScript и рассмотрите возможность перехода на 
                   браузер с <a href="http://videojs.com/html5-video-support/" target="_blank">поддержкой HTML5 видео</a>.
