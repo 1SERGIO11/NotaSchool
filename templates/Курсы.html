@@ -8,6 +8,7 @@
     <title>Курсы</title>
     <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/nicepage-u.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Курсы.css' %}" media="screen">
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
     
@@ -63,7 +64,14 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-        <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+        {% if user.is_authenticated %}
+  <!-- Показываем иконку профиля для авторизованных пользователей -->
+  <img class="u-hover-feature u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{% static 'images/Профиль.png' %}" alt="" data-image-width="512" data-image-height="512" data-href="{% url 'profile' %}">
+
+  {% else %}
+  <!-- Показываем кнопку "Вход" для неавторизованных пользователей -->
+  <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+{% endif %}
       </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
 borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
 }</style></header>

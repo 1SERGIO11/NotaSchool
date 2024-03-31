@@ -70,8 +70,9 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     <section class="u-clearfix u-grey-90 u-section-1" id="sec-5155">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-text-1">Профиль</h1>
-        <a href="{% url 'home' %}" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-3-base u-radius-50 u-btn-1"><span class="u-file-icon u-icon u-icon-1"><img src="{% static 'images/Выход.png' %}" alt=""></span>&nbsp;Выход
-        </a>
+        <a href="{% url 'logout' %}" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-3-base u-radius-50 u-btn-1">
+          <span class="u-file-icon u-icon u-icon-1"><img src="{% static 'images/Выход.png' %}" alt=""></span>&nbsp;Выход
+      </a>
         <div class="custom-expanded u-tabs u-tabs-1">
           <ul class="u-border-2 u-border-grey-75 u-spacing-14 u-tab-list u-unstyled" role="tablist">
             <li class="u-tab-item" role="presentation">
@@ -90,9 +91,9 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-border-2 u-border-grey-10 u-container-style u-grey-80 u-group u-radius-33 u-shape-round u-group-1">
                   <div class="u-container-layout u-container-layout-2">
                     <img src="{% static 'images/Фото профиля.png' %}" class="u-image u-image-circle u-preserve-proportions u-image-1" alt="" data-image-width="531" data-image-height="531"></img>
-                    <h2 class="u-text u-text-default u-text-2">Имя Фамилия</h2>
-                    <p class="u-text u-text-default u-text-3">Никнейм</p>
-                  </div>
+                    <h2 class="u-text u-text-default u-text-2">{{ user.first_name }} {{ user.last_name }}</h2>
+                    <p class="u-text u-text-default u-text-3">{{ user.username }}</p>
+                </div>
                 </div>
                 <div class="u-border-2 u-border-grey-5 u-form u-grey-80 u-radius-39 u-form-1">
                   <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 31px;">

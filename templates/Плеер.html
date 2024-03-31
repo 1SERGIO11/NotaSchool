@@ -8,6 +8,7 @@
     <title>Разборы</title>
     <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/nicepage-u.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Плеер.css' %}" media="screen">
     <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
@@ -66,7 +67,14 @@
           </div>
         </nav>
         
-        <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+        {% if user.is_authenticated %}
+  <!-- Показываем иконку профиля для авторизованных пользователей -->
+  <img class="u-hover-feature u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{% static 'images/Профиль.png' %}" alt="" data-image-width="512" data-image-height="512" data-href="{% url 'profile' %}">
+
+  {% else %}
+  <!-- Показываем кнопку "Вход" для неавторизованных пользователей -->
+  <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+{% endif %}
       </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
 border: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
 }</style>
@@ -212,19 +220,14 @@ border: top right bottom left !important; border-color: #404040 !important; bord
           <div class="u-container-layout u-container-layout-9">
             <img class="u-image u-image-circle u-preserve-proportions u-image-2" src="{% static 'images/Юзер.png' %}" alt="" data-image-width="1280" data-image-height="1280">
             <div class="u-form u-form-1">
-              <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="margin: -70px auto 0 -30px;">
+              <form id="commentForm" action="{% url 'add_comment' video.id %}" method="post" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="margin: -70px auto 0 -30px;">
+                {% csrf_token %}
                 <div class="u-form-email u-form-group u-label-top">
-                  <label for="email-1b95" class="u-form-control-hidden u-label"></label>
-                  <textarea id="email-1b95" name="comment" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none u-input-1" required="" placeholder="Введите комментарий" style="overflow:hidden; resize:none;"></textarea>
+                  <textarea id="email-1b95" name="comment" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none u-input-1" required="" placeholder="Введите комментарий"></textarea>
                 </div>
-                <div class="u-align-right u-form-group u-form-submit u-label-top" id = "submit-button">
-                  <input type="submit" id = "submit-button" value="submit" class="u-form-control-hidden">
-                  <a href="" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-radius-22 u-btn-3">Отправить</a>
+                <div class="u-align-right u-form-group u-form-submit u-label-top">
+                  <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-radius-22 u-btn-3">Отправить</button>
                 </div>
-                <div class="u-form-send-message u-form-send-success"> Спасибо! Ваше сообщение отправлено. </div>
-                <div class="u-form-send-error u-form-send-message"> Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз. </div>
-                <input type="hidden" value="" name="recaptchaResponse">
-                <input type="hidden" name="formServices" value="0bbb107b-514e-db7a-86d1-f92e85e7ded2">
               </form>
             </div>
             <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-10">
@@ -255,6 +258,22 @@ border: top right bottom left !important; border-color: #404040 !important; bord
     <footer class="u-clearfix u-footer u-grey-80" id="sec-4eee"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <p class="u-text u-text-default u-text-1">NotaSchool 2023</p>
       </div></footer>
+      <script>
+        var isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
+    </script>
+      <script>
+        function submitComment() {
+    if (!isAuthenticated) {
+        // Перенаправление на страницу входа, сохраняя URL страницы для возврата после входа
+        window.location.href = "{% url 'login' %}?next=" + encodeURIComponent(window.location.pathname);
+    } else {
+        // Если пользователь авторизован, отправляем форму
+        document.getElementById("commentForm").submit();
+    }
+}
+
+        </script>
+        
       <script>
         document.addEventListener('DOMContentLoaded', function() {
           // Инициализация основного видео-плеера

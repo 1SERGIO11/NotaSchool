@@ -6,8 +6,24 @@ from django.http import JsonResponse
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
-from .models import Video
+from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
+from .models import Video, Comment
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+@csrf_exempt
+def add_comment(request, video_id):
+    if request.method == 'POST':
+        video = get_object_or_404(Video, pk=video_id)
+        comment_text = request.POST.get('comment')
+        # Предполагая, что у вас есть пользователь в request.user
+        Comment.objects.create(video=video, user=request.user, comment_text=comment_text)
+        return redirect('player', video_id=video_id)
 def player_view(request, video_id):
     video = get_object_or_404(Video, pk=video_id)
     return render(request, 'Плеер.html', {'video': video})
@@ -39,7 +55,13 @@ def check_username(request):
     return JsonResponse(response)
 
 def home(request):
-    return render(request, 'Главная.html')
+    # Проверяем, авторизован ли пользователь
+    if request.user.is_authenticated:
+        # Если пользователь авторизован, перенаправляем его на страницу авторизированного пользователя
+        return redirect('user_home')
+    else:
+        # Если пользователь не авторизован, отображаем главную страницу
+        return render(request, 'Главная.html')
 
 def check_email(request):
     email = request.GET.get('email', None)
