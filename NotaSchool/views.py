@@ -6,9 +6,12 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
-from .models import Video, Comment
+from .models import Video, Comment, ViewHistory
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from django.db.models import F
+
 
 def logout_view(request):
     logout(request)
@@ -23,13 +26,43 @@ def add_comment(request, video_id):
             return redirect('player', video_id=video_id)
     # Если метод запроса не POST или комментарий пустой, перенаправьте пользователя обратно на страницу видео
     return redirect('player', video_id=video_id)
+def get_word_form(number, form_for_1, form_for_2, form_for_5):
+    number = abs(number) % 100
+    if number > 10 and number < 20:
+        return form_for_5
+    number = number % 10
+    if number == 1:
+        return form_for_1
+    if number > 1 and number < 5:
+        return form_for_2
+    return form_for_5
+
+@login_required
 def player_view(request, video_id):
     video = get_object_or_404(Video, pk=video_id)
-    comments = video.comments.all()  # Используя related_name='comments' в модели Comment
-    return render(request, 'Плеер.html', {'video': video, 'comments': comments})
+    user = request.user
+
+    if not ViewHistory.objects.filter(user=user, video=video).exists():
+        ViewHistory.objects.create(user=user, video=video, view_date=timezone.now())
+        Video.objects.filter(pk=video_id).update(view_count=F('view_count') + 1)
+        video.refresh_from_db()
+
+    view_form = get_word_form(video.view_count, "просмотр", "просмотра", "просмотров")
+
+    comments = video.comments.all()
+    return render(request, 'Плеер.html', {'video': video, 'comments': comments, 'view_form': view_form})
+
+
 def analysis_page(request):
     videos = Video.objects.all()  # Получаем все видео из базы данных
+
+    # Для каждого видео добавляем форму слова "просмотр" в зависимости от количества
+    for video in videos:
+        video.views_word = get_word_form(video.view_count, "просмотр", "просмотра", "просмотров")
+
     return render(request, 'Разборы.html', {'videos': videos})
+
+
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
