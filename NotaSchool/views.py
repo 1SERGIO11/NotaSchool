@@ -1,32 +1,32 @@
-from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
-from django.shortcuts import redirect
+from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
 from .models import Video, Comment
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout
-from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 def logout_view(request):
     logout(request)
     return redirect('home')
-@csrf_exempt
+@login_required
 def add_comment(request, video_id):
     if request.method == 'POST':
         video = get_object_or_404(Video, pk=video_id)
         comment_text = request.POST.get('comment')
-        # Предполагая, что у вас есть пользователь в request.user
-        Comment.objects.create(video=video, user=request.user, comment_text=comment_text)
-        return redirect('player', video_id=video_id)
+        if comment_text:  # Добавьте проверку, что комментарий не пустой
+            Comment.objects.create(video=video, user=request.user, comment_text=comment_text)
+            return redirect('player', video_id=video_id)
+    # Если метод запроса не POST или комментарий пустой, перенаправьте пользователя обратно на страницу видео
+    return redirect('player', video_id=video_id)
 def player_view(request, video_id):
     video = get_object_or_404(Video, pk=video_id)
-    return render(request, 'Плеер.html', {'video': video})
+    comments = video.comments.all()  # Используя related_name='comments' в модели Comment
+    return render(request, 'Плеер.html', {'video': video, 'comments': comments})
 def analysis_page(request):
     videos = Video.objects.all()  # Получаем все видео из базы данных
     return render(request, 'Разборы.html', {'videos': videos})

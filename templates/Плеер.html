@@ -19,7 +19,12 @@
     <meta name="generator" content="Nicepage 5.21.10, nicepage.com">
     <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    
+    <style>
+      #email-1b95 {
+          resize: none;
+          overflow: hidden;
+      }
+  </style>
     
     
     <script type="application/ld+json">{
@@ -226,26 +231,24 @@ border: top right bottom left !important; border-color: #404040 !important; bord
                   <textarea id="email-1b95" name="comment" class="u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-none u-input-1" required="" placeholder="Введите комментарий"></textarea>
                 </div>
                 <div class="u-align-right u-form-group u-form-submit u-label-top">
-                  <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-radius-22 u-btn-3">Отправить</button>
+                  <button type="submit" onclick="submitComment()" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-radius-22 u-btn-3">Отправить</button>
                 </div>
               </form>
             </div>
-            <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-10">
-              <div class="u-container-layout u-container-layout-10">
-                <img class="custom-expanded u-image u-image-circle u-preserve-proportions u-image-3" src="{% static 'images/Юзер.png' %}" alt="" data-image-width="1280" data-image-height="1280">
-                <p class="u-text u-text-15">Пользователь</p>
-                <p class="u-text u-text-16">Лучший в мире разбор! Научился играть кузнечика за 1 секунду</p>
-                <p class="u-text u-text-grey-50 u-text-17">1 неделю назад</p>
-              </div>
+            {% for comment in comments %}
+    <div class="u-container-style u-group u-shape-rectangle u-group-10" > <!-- Добавлен margin для отступа между комментариями -->
+        <div class="u-container-layout">
+            <img class="u-image u-image-circle u-preserve-proportions u-image-2" src="{% static 'images/Юзер.png' %}" alt="" data-image-width="1280" data-image-height="1280">
+            <div> <!-- Сдвигаем текст комментария вправо, чтобы не перекрывалось изображение -->
+                <p class="u-text u-text-15">{{ comment.user.username }}</p>
+                <p class="u-text u-text-16">{{ comment.comment_text }}</p>
+                <p class="u-text u-text-grey-50 u-text-17">{{ comment.comment_date|date:"d M Y H:i" }}</p>
             </div>
-            <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-11">
-              <div class="u-container-layout u-container-layout-11">
-                <img class="custom-expanded u-image u-image-circle u-preserve-proportions u-image-4" src="{% static 'images/Юзер.png' %}" alt="" data-image-width="1280" data-image-height="1280">
-                <p class="u-text u-text-18">Пользователь</p>
-                <p class="u-text u-text-19">Лучший в мире разбор! Научился играть кузнечика за 1 секунду</p>
-                <p class="u-text u-text-grey-50 u-text-20">1 неделю назад</p>
-              </div>
-            </div>
+        </div>
+    </div>
+{% empty %}
+    <p>Нет комментариев.</p>
+{% endfor %}
           </div>
         </div>
         <h6 class="u-align-left u-text u-text-21">Название видео</h6>
@@ -258,6 +261,22 @@ border: top right bottom left !important; border-color: #404040 !important; bord
     <footer class="u-clearfix u-footer u-grey-80" id="sec-4eee"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <p class="u-text u-text-default u-text-1">NotaSchool 2023</p>
       </div></footer>
+      <script>
+        const textarea = document.getElementById('email-1b95');
+        
+        function autoGrowTextArea(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+        
+        textarea.addEventListener('input', function() {
+            autoGrowTextArea(this);
+        });
+        
+        // Начальное изменение размера в случае, если есть уже какой-то текст
+        autoGrowTextArea(textarea);
+    </script>
+    
       <script>
         var isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
     </script>
@@ -321,19 +340,5 @@ border: top right bottom left !important; border-color: #404040 !important; bord
             }
           });
         });
-      </script>
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-  var textarea = document.getElementById('email-1b95');
-  textarea.addEventListener('input', autoResize, false);
-
-  function autoResize() {
-    this.style.height = 'auto';
-    this.style.height = (this.scrollHeight) + 'px';
-  }
-
-  // Вызовите autoResize, чтобы выставить начальную высоту при загрузке страницы
-  autoResize.call(textarea);
-});
       </script>
 </body></html>
