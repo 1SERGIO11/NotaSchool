@@ -2,7 +2,6 @@ from .forms import RegisterForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
-from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
@@ -11,6 +10,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db.models import F
+from django.db import IntegrityError
 
 
 def logout_view(request):
@@ -37,21 +37,48 @@ def get_word_form(number, form_for_1, form_for_2, form_for_5):
         return form_for_2
     return form_for_5
 
-@login_required
-def player_view(request, video_id):
-    video = get_object_or_404(Video, pk=video_id)
-    user = request.user
+def get_comment_form(number):
+    number = abs(number) % 100
+    if 5 <= number <= 20:
+        return 'комментариев'
+    number = number % 10
+    if number == 1:
+        return 'комментарий'
+    if 2 <= number <= 4:
+        return 'комментария'
+    return 'комментариев'
 
-    if not ViewHistory.objects.filter(user=user, video=video).exists():
-        ViewHistory.objects.create(user=user, video=video, view_date=timezone.now())
-        Video.objects.filter(pk=video_id).update(view_count=F('view_count') + 1)
-        video.refresh_from_db()
+def player_view(request, video_id):
+    # Основное видео, которое пользователь хочет посмотреть
+    video = get_object_or_404(Video, pk=video_id)
+
+    # Получаем другие видео для отображения на странице
+    # Например, последние 5 видео, исключая текущее
+    other_videos = Video.objects.exclude(id=video_id).order_by('-creation_date')[:5]
+
+    if request.user.is_authenticated:
+        user = request.user
+        if not ViewHistory.objects.filter(user=user, video=video).exists():
+            ViewHistory.objects.create(user=user, video=video, view_date=timezone.now())
+            Video.objects.filter(pk=video_id).update(view_count=F('view_count') + 1)
+            video.refresh_from_db()
 
     view_form = get_word_form(video.view_count, "просмотр", "просмотра", "просмотров")
-
     comments = video.comments.all()
-    return render(request, 'Плеер.html', {'video': video, 'comments': comments, 'view_form': view_form})
 
+    # Подсчет количества комментариев и определение их формы
+    comments_count = comments.count()
+    comments_form = get_word_form(comments_count, "комментарий", "комментария", "комментариев")
+
+    # Передаем в шаблон и основное видео, и список других видео
+    return render(request, 'Плеер.html', {
+        'video': video,
+        'comments': comments,
+        'view_form': view_form,
+        'comments_count': comments_count,
+        'comments_form': comments_form,
+        'other_videos': other_videos,  # Добавляем другие видео в контекст
+    })
 
 def analysis_page(request):
     videos = Video.objects.all()  # Получаем все видео из базы данных
@@ -63,22 +90,27 @@ def analysis_page(request):
     return render(request, 'Разборы.html', {'videos': videos})
 
 
+
+
+
 def register(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
+        form = RegisterForm()
+        return render(request, 'Регистрация.html', {'form': form})
+    elif request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Аккаунт создан для {username}!')
-            user = form.save()
-            auth_login(request, user)
-            return JsonResponse({"success": True})
+            try:
+                user = form.save()
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                return JsonResponse({"success": True, "redirect": "/"})
+            except IntegrityError as e:
+                return JsonResponse({"success": False, "errors": "Это имя пользователя уже занято."}, status=400)
         else:
+            # Сбор ошибок формы для отображения на клиенте
             errors = form.errors.as_json()
-            return JsonResponse({"success": False, "errors": errors})
-    else:
-        form = RegisterForm()
-    return render(request, 'Регистрация.html', {'form': form})
+            return JsonResponse({"success": False, "errors": errors}, status=400)
+
 
 def check_username(request):
     username = request.GET.get('username', None)

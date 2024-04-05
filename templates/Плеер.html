@@ -190,7 +190,7 @@ border: top right bottom left !important; border-color: #404040 !important; bord
         <p class="u-text u-text-default u-text-6">{{ video.author.username }}</p>
         <img class="u-image u-image-circle u-preserve-proportions u-image-1" src="{% static 'images/NotaSchool.png' %}" alt="" data-image-width="1024" data-image-height="1024">
         <a href="https://nicepage.com/wordpress-themes" class="u-active-palette-5-base u-border-none u-btn u-btn-round u-button-style u-custom-color-3 u-hover-palette-2-base u-radius-50 u-button1">Подписаться</a><span class="u-file-icon u-icon u-text-palette-2-base u-icon-2" data-href="https://nicepage.com"><img src="{% static 'images/Дизлайк.png' %}" alt=""></span>
-        <p class="u-text u-text-default u-text-7">500 тыс.</p>
+        <p class="u-text u-text-default u-text-7">{{ video.like_count }}</p>
         <div class="u-container-style u-grey-75 u-group u-radius-18 u-shape-round u-group-5">
           <div class="u-container-layout u-container-layout-5">
             <p class="u-text u-text-default u-text-8">{{ video.view_count }} {{ view_form }}</p>
@@ -213,7 +213,7 @@ border: top right bottom left !important; border-color: #404040 !important; bord
           </div>
         </div>
         <h6 class="u-align-left u-text u-text-12">Название видео</h6>
-        <h6 class="u-align-left u-text u-text-default u-text-13">10 000 комментариев</h6>
+        <h6 class="u-align-left u-text u-text-default u-text-13">{{ comments_count }} - {{ comments_form }}</h6>
         <div class="u-border-2 u-border-grey-75 u-container-style u-group u-radius-13 u-shape-round u-group-7">
           <div class="u-container-layout u-container-layout-7"></div>
         </div>
