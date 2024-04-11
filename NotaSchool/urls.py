@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .views import check_username
+from .views import check_username, course_view
 from django.contrib.auth import views as auth_views
 from . import views
 from django.conf import settings
@@ -23,5 +23,6 @@ urlpatterns = [
     path('разборы/плеер/<int:video_id>/', views.player_view, name='player'),
     path('add_comment/<int:video_id>/', views.add_comment, name='add_comment'),
     path('logout/', logout_view, name='logout'),
+    path('курсы/курс-1/', course_view, name='course-1')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,17 +1,22 @@
-from .forms import RegisterForm
+from .forms import RegisterForm, UserUpdateForm, UserProfileForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
-from .models import Video, Comment, ViewHistory
+from .models import Video, Comment, ViewHistory, UserProfile
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db.models import F
 from django.db import IntegrityError
+import logging
+logger = logging.getLogger(__name__)
 
+
+def course_view(request):
+    return render(request, 'Курс-1.html')
 
 def logout_view(request):
     logout(request)
@@ -93,6 +98,8 @@ def analysis_page(request):
 
 
 
+from django.db import transaction
+
 def register(request):
     if request.method == 'GET':
         form = RegisterForm()
@@ -101,16 +108,22 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             try:
-                user = form.save()
-                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-                return JsonResponse({"success": True, "redirect": "/"})
+                with transaction.atomic():  # Обеспечивает атомарность операции
+                    user = form.save()  # Сохраняем пользователя
+                    login(request, user, backend='django.contrib.auth.backends.ModelBackend')  # Входим в систему
+                    return JsonResponse({"success": True, "redirect": "/"})  # Перенаправляем на главную
             except IntegrityError as e:
-                return JsonResponse({"success": False, "errors": "Это имя пользователя уже занято."}, status=400)
+                logger.error(f"Ошибка при регистрации: {e}")  # Логируем ошибку
+                # Проверяем сообщение об ошибке, чтобы уточнить её природу
+                if 'UNIQUE constraint failed: auth_user.username' in str(e):
+                    error_message = "Это имя пользователя уже занято."
+                else:
+                    error_message = "Произошла ошибка при регистрации."
+                return JsonResponse({"success": False, "errors": error_message}, status=400)
         else:
             # Сбор ошибок формы для отображения на клиенте
             errors = form.errors.as_json()
             return JsonResponse({"success": False, "errors": errors}, status=400)
-
 
 def check_username(request):
     username = request.GET.get('username', None)
@@ -168,6 +181,32 @@ def analysis_view(request):
 def user_home(request):
     return render(request, 'user_home.html')
 
+@login_required
 def profile(request):
-    # Здесь можно добавить логику, например, проверку авторизации пользователя
-    return render(request, 'Профиль.html')
+    user = request.user
+    try:
+        profile = user.profile
+        logger.debug('Profile data: %s', profile.__dict__)
+    except User.profile.RelatedObjectDoesNotExist:
+        profile = UserProfile.objects.create(user=user)
+        logger.debug('New profile created')
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Ваш профиль был успешно обновлен!')
+            return redirect('profile')
+
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = UserProfileForm(instance=request.user.profile)
+
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form
+    }
+
+    return render(request, 'Профиль.html', context)
