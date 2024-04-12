@@ -183,12 +183,15 @@
           </div>
         </div>
         <h6 class="u-align-left u-text u-text-3">Название видео</h6>
-        <h4 class="u-align-left u-text u-text-4">{{ video.title }}</h4><span class="u-file-icon u-hover-feature u-icon u-text-custom-color-3 u-icon-1" data-href="https://nicepage.com"><img src="{% static 'images/Лайк.png' %}" alt=""></span>
+        <h4 class="u-align-left u-text u-text-4">{{ video.title }}</h4>
+        <span class="u-file-icon u-hover-feature u-icon u-text-custom-color-3 u-icon-1" onclick="addLike({{ video.id }});"style="cursor: pointer;">
+          <img src="{% static 'images/Лайк.png' %}" alt="Like">
+        </span>
         <p class="u-text u-text-default u-text-5">1млн. подписчиков</p>
         <p class="u-text u-text-default u-text-6">{{ video.author.username }}</p>
         <img class="u-image u-image-circle u-preserve-proportions u-image-1" src="{% static 'images/NotaSchool.png' %}" alt="" data-image-width="1024" data-image-height="1024">
         <a href="https://nicepage.com/wordpress-themes" class="u-active-palette-5-base u-border-none u-btn u-btn-round u-button-style u-custom-color-3 u-hover-palette-2-base u-radius-50 u-button1">Подписаться</a><span class="u-file-icon u-icon u-text-palette-2-base u-icon-2" data-href="https://nicepage.com"><img src="{% static 'images/Дизлайк.png' %}" alt=""></span>
-        <p class="u-text u-text-default u-text-7">{{ video.like_count }}</p>
+        <p class="u-text u-text-default u-text-7" id="like-count-{{ video.id }}">{{ video.like_count }}</p>
         <div class="u-container-style u-grey-75 u-group u-radius-18 u-shape-round u-group-5">
           <div class="u-container-layout u-container-layout-5">
             <p class="u-text u-text-default u-text-8">{{ video.view_count }} {{ view_form }}</p>
@@ -273,6 +276,54 @@
         
         // Начальное изменение размера в случае, если есть уже какой-то текст
         autoGrowTextArea(textarea);
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+const csrftoken = getCookie('csrftoken');
+
+function addLike(videoId) {
+    fetch(`/add_like/${videoId}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': csrftoken
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            if (response.status === 401) { // Проверяем, требуется ли аутентификация
+                window.location.href = "/login/"; // Перенаправляем на страницу входа
+            } else {
+                throw new Error('Something went wrong on the server.');
+            }
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.likes) {
+            document.getElementById(`like-count-${videoId}`).textContent = data.likes;
+        } else if (data.error) {
+            console.error('Error:', data.error);
+        }
+    })
+    .catch(error => console.error('Fetch error:', error));
+}
+
+
+
+
     </script>
     
       <script>

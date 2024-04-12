@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
-from .models import Video, Comment, ViewHistory, UserProfile
+from .models import Video, Comment, ViewHistory, UserProfile, LikedVideo
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -15,6 +15,26 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+def add_like(request, video_id):
+    if not request.user.is_authenticated:
+        # Возвращаем JSON-ответ с кодом 401, когда пользователь не авторизован
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+
+    video = get_object_or_404(Video, pk=video_id)
+
+    # Проверяем, ставил ли уже пользователь лайк на это видео
+    if LikedVideo.objects.filter(user=request.user, video=video).exists():
+        # Если лайк уже есть, возвращаем ошибку
+        return JsonResponse({'error': 'You have already liked this video'}, status=400)
+
+    # Если лайка не было, создаем лайк
+    LikedVideo.objects.create(user=request.user, video=video)
+    video.like_count = F('like_count') + 1
+    video.save()
+    video.refresh_from_db()  # Обновляем объект для получения нового значения like_count
+
+    # Возвращаем количество лайков в JSON-формате
+    return JsonResponse({'likes': video.like_count})
 def course_view(request):
     return render(request, 'Курс-1.html')
 

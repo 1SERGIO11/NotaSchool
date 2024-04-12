@@ -78,7 +78,7 @@
       </div></header>
     <section class="u-clearfix u-image u-section-1" style="background-image: url('{% static 'images/2.jpg' %}');" id="sec-86b1" data-image-width="1920" data-image-height="1280">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://nicepage.com/website-mockup" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-2-base u-radius-12 u-btn-1">Принять Участие!</a>
+        <a href="#tariffBox" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-2-base u-radius-12 u-btn-1" onclick="smoothScroll(event)">Принять Участие!</a>
         <div class="u-container-style u-grey-10 u-group u-opacity u-opacity-70 u-radius-28 u-shape-round u-group-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1">
             <p class="u-text u-text-default u-text-1">
@@ -306,7 +306,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
           </div>
         </div>
         <h2 class="u-text u-text-default u-text-32">Тарифы</h2>
-        <div class="u-container-style u-group u-radius-30 u-shape-round u-white u-group-31">
+        <div class="u-container-style u-group u-radius-30 u-shape-round u-white u-group-31" id="tariffBox">
           <div class="u-container-layout u-container-layout-31">
             <h5 class="u-text u-text-default u-text-palette-3-light-1 u-text-33">Базовый</h5>
             <p class="u-text u-text-default u-text-34">● ​Доступ к видеоурокам основного курса.<br>
@@ -315,7 +315,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             </p>
             <p class="u-text u-text-default u-text-35">1599 ₽</p>
             <p class="u-text u-text-default u-text-36"> ̶1̶9̶9̶9̶ ̶₽̶</p>
-            <a href="https://nicepage.com/k/auto-mechanic-html-templates" class="u-btn u-btn-round u-button-style u-palette-3-light-2 u-radius-17 u-btn-1">Оплатить</a>
+            <a href="" class="u-btn u-btn-round u-button-style u-palette-3-light-2 u-radius-17 u-btn-1">Оплатить</a>
           </div>
         </div>
         <div class="u-container-style u-gradient u-group u-radius-30 u-shape-round u-group-32">
@@ -329,7 +329,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             </p>
             <p class="u-text u-text-default u-text-39">1999 ₽</p>
             <p class="u-text u-text-default u-text-40"> ̶2̶5̶9̶9̶ ̶₽̶</p>
-            <a href="https://nicepage.me" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-15 u-btn-2">Оплатить&nbsp;<span class="u-file-icon u-icon"><img src="{% static 'images/Огонёк.png' %}" alt=""></span>
+            <a href="" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-15 u-btn-2">Оплатить&nbsp;<span class="u-file-icon u-icon"><img src="{% static 'images/Огонёк.png' %}" alt=""></span>
             </a>
           </div>
         </div>
@@ -339,7 +339,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             <div class="u-container-style u-group u-radius-26 u-shape-round u-white u-group-34">
               <div class="u-container-layout u-container-layout-34">
                 <h6 class="u-text u-text-default u-text-42">500 ₽</h6>
-                <a href="https://nicepage.com/html5-template" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-15 u-btn-3">Забронировать</a>
+                <a href="" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-15 u-btn-3">Забронировать</a>
               </div>
             </div>
             <p class="u-text u-text-43"> Вы можете забронировать место на обучение на ближайшие 30 дней по текущим условиям, за 500 рублей.<br>
@@ -361,7 +361,17 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
       </div>
     </section>
     
-    
+    <script>
+      function smoothScroll(event) {
+          event.preventDefault(); // Предотвращаем стандартное поведение ссылок
+          var targetId = event.currentTarget.getAttribute('href'); // Получаем идентификатор секции
+          document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth',
+              block: 'start' // Опционально: указывает, что прокрутка должна выровнять элемент по верхней части вьюпорта
+          });
+      }
+    </script>
+      
     
     <footer class="u-clearfix u-footer u-grey-80" id="sec-4eee"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <p class="u-text u-text-default u-text-1">NotaSchool 2023</p>
