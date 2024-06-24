@@ -6,6 +6,7 @@
     <meta name="keywords" content="Профиль, Имя Фамилия">
     <meta name="description" content="">
     <title>Профиль</title>
+    <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage-u.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Профиль.css' %}" media="screen">
     <script type="text/javascript" src="{% static 'js/jquery-u.js' %}"></script>
@@ -69,8 +70,9 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
     <section class="u-clearfix u-grey-90 u-section-1" id="sec-5155">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-text-1">Профиль</h1>
-        <a href="{% url 'home' %}" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-3-base u-radius-50 u-btn-1"><span class="u-file-icon u-icon u-icon-1"><img src="{% static 'images/Выход.png' %}" alt=""></span>&nbsp;Выход
-        </a>
+        <a href="{% url 'logout' %}" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-3-base u-radius-50 u-btn-1">
+          <span class="u-file-icon u-icon u-icon-1"><img src="{% static 'images/Выход.png' %}" alt=""></span>&nbsp;Выход
+      </a>
         <div class="custom-expanded u-tabs u-tabs-1">
           <ul class="u-border-2 u-border-grey-75 u-spacing-14 u-tab-list u-unstyled" role="tablist">
             <li class="u-tab-item" role="presentation">
@@ -89,42 +91,43 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 <div class="u-border-2 u-border-grey-10 u-container-style u-grey-80 u-group u-radius-33 u-shape-round u-group-1">
                   <div class="u-container-layout u-container-layout-2">
                     <img src="{% static 'images/Фото профиля.png' %}" class="u-image u-image-circle u-preserve-proportions u-image-1" alt="" data-image-width="531" data-image-height="531"></img>
-                    <h2 class="u-text u-text-default u-text-2">Имя Фамилия</h2>
-                    <p class="u-text u-text-default u-text-3">Никнейм</p>
-                  </div>
+                    <h2 class="u-text u-text-default u-text-2">{{ user.first_name }} {{ user.last_name }}</h2>
+                    <p class="u-text u-text-default u-text-3">{{ user.username }}</p>
+                </div>
                 </div>
                 <div class="u-border-2 u-border-grey-5 u-form u-grey-80 u-radius-39 u-form-1">
-                  <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 31px;">
+                  <form method="POST" action="{% url 'profile' %}" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 31px;">
+                    {% csrf_token %}
                     <p class="u-form-group u-form-text u-text u-text-4">Редактировать профиль</p>
                     <div class="u-form-group u-form-name u-form-partition-factor-2">
                       <label for="name-b8c5" class="u-label">Имя</label>
-                      <input type="text" placeholder="Введите Ваше имя" id="name-b8c5" name="name" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="">
+                      <input type="text" placeholder="Введите Ваше имя" id="name-b8c5" name="name" class="u-grey-60 u-input u-input-rectangle u-radius-11" value="{{ user.first_name }}" required="">
                     </div>
                     <div class="u-form-group u-form-partition-factor-2 u-form-group-3">
                       <label for="text-7f39" class="u-label">Фамилия</label>
-                      <input type="text" placeholder="Введите Вашу фамилию" id="text-7f39" name="text" class="u-grey-60 u-input u-input-rectangle u-radius-11">
+                      <input type="text" placeholder="Введите Вашу фамилию" id="text-7f39" name="text" class="u-grey-60 u-input u-input-rectangle u-radius-11" value="{{ user.last_name }}">
                     </div>
                     <div class="u-form-group u-form-select u-form-group-4">
                       <label for="select-769e" class="u-label">Пол</label>
                       <div class="u-form-select-wrapper">
-                        <select id="select-769e" name="select" class="u-grey-60 u-input u-input-rectangle u-radius-11">
-                          <option value="Мужской" data-calc="">Мужской</option>
-                          <option value="Женский" data-calc="">Женский</option>
+                        <select id="select-769e" name="gender" class="u-grey-60 u-input u-input-rectangle u-radius-11">
+                          <option value="male" {% if user.profile.gender == 'male' %}selected{% endif %}>Мужской</option>
+                          <option value="female" {% if user.profile.gender == 'female' %}selected{% endif %}>Женский</option>
                         </select>
                         <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
                       </div>
                     </div>
                     <div class="u-form-date u-form-group u-form-group-5">
                       <label for="date-135f" class="u-label">Дата рождения</label>
-                      <input type="text" placeholder="ММ/ДД/ГГГГ" id="date-135f" name="date" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="" data-date-format="mm/dd/yyyy">
+                      <input type="date" id="date-birth_date" name="birth_date" class="u-grey-60 u-input u-input-rectangle u-radius-11" value="{{ user.profile.birth_date|date:'Y-m-d' }}">
                     </div>
                     <div class="u-form-group u-form-phone u-form-group-6">
                       <label for="phone-3e5e" class="u-label">Телефон</label>
-                      <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Телефон в формате +7(917)0500070" id="phone-3e5e" name="phone" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="">
+                      <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Телефон в формате +7(917)0500070" id="phone-3e5e" name="phone" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="" value="{{ user.profile.phone }}">
                     </div>
                     <div class="u-form-email u-form-group">
                       <label for="email-b8c5" class="u-label">Эл. почта</label>
-                      <input type="email" placeholder="Введите Ваш email адрес" id="email-b8c5" name="email" class="u-grey-60 u-input u-input-rectangle u-radius-11" required="">
+                      <input type="email" placeholder="Введите Ваш email адрес" id="email-b8c5" name="email" class="u-grey-60 u-input u-input-rectangle u-radius-11" required=""value="{{ user.email }}">
                     </div>
                     <div class="u-align-left u-form-group u-form-submit">
                       <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-3-base u-radius-14 u-btn-2">Сохранить</a>

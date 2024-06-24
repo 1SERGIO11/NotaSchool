@@ -6,8 +6,12 @@
     <meta name="keywords" content="Sample Headline, Design Perfection">
     <meta name="description" content="">
     <title>Курсы</title>
+    <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/nicepage-u.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Курсы.css' %}" media="screen">
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
     
     <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
@@ -27,9 +31,9 @@
     <meta property="og:title" content="Курсы">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-custom-color-4 u-header u-sticky u-sticky-436a u-header" id="sec-02f5"><div class="u-clearfix u-sheet u-sheet-1">
+  <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-custom-color-4 u-header u-sticky u-sticky-436a" id="sec-02f5" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-text u-text-default u-text-1">
-          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1" href="{% url 'courses' %}">Not<span style="color: red;">a</span>School</a>
+          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1" href="{% url 'home' %}">Not<span style="color: red;">a</span>School</a>
         </p>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
@@ -41,105 +45,132 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'home' %}" style="padding: 10px 20px;">Главная</a>
-            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'courses' %}" style="padding: 10px 20px;">Курсы</a>
-            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'analysis' %}" style="padding: 10px 20px;">Разборы</a>
-            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="https://vk.com/club223311934" target="_blank" style="padding: 10px 20px;">Поддержка</a>
-            </li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'blog' %}" style="padding: 10px 20px;">Блог</a>
-            </li></ul>
+</li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'courses' %}" style="padding: 10px 20px;">Курсы</a>
+</li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'analysis' %}" style="padding: 10px 20px;">Разборы</a>
+</li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="https://vk.com/club223311934" target="_blank" style="padding: 10px 20px;">Поддержка</a>
+</li><li class="u-nav-item"><a class="u-active-custom-color-3 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-3-light-2 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{% url 'blog' %}" style="padding: 10px 20px;">Блог</a>
+</li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home' %}">Главная</a>
-                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'courses' %}">Курсы</a>
-                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'analysis' %}">Разборы</a>
-                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="https://vk.com/club223311934" target="_blank">Поддержка</a>
-                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'blog' %}">Блог</a>
-                </li></ul>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'courses' %}">Курсы</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'analysis' %}">Разборы</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="https://vk.com/club223311934" target="_blank">Поддержка</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'blog' %}">Блог</a>
+</li></ul>
               </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-        <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
-      </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
-borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
-}</style></header>
-    <section class="u-align-center u-clearfix u-image u-shading u-section-1" style="background-image: url('{% static 'images/Курсы.jpg' %}');" id="sec-e02b" data-image-width="4896" data-image-height="3264">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center u-text u-text-default u-text-1">Курсы</h1>
-        <p class="u-align-center u-large-text u-text u-text-variant u-text-2">&nbsp;Здесь ты найдешь ключ к своему гитарному мастерству. Выбирай курсы, раскрывай музыкальные секреты и становись настоящим гитарным волшебником!&nbsp;</p>
+        {% if user.is_authenticated %}
+  <!-- Показываем иконку профиля для авторизованных пользователей -->
+  <img class="u-hover-feature u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{% static 'images/Профиль.png' %}" alt="" data-image-width="512" data-image-height="512" data-href="{% url 'profile' %}">
+
+  {% else %}
+  <!-- Показываем кнопку "Вход" для неавторизованных пользователей -->
+  <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+{% endif %}
+      </div></header>
+    <section class="u-clearfix u-palette-3-light-2 u-section-1" id="sec-6681">
+      <img class="u-expanded-height u-image u-image-default u-image-1" src="{% static 'images/Курсы.png' %}" alt="" data-image-width="1920" data-image-height="1339" data-animation-name="customAnimationIn" data-animation-duration="1000">
+      <div class="u-align-left u-border-2 u-border-grey-10 u-container-style u-group u-opacity u-opacity-50 u-radius-16 u-shape-round u-white u-group-1">
+        <div class="u-container-layout">
+          <h6 class="u-text u-text-grey-60 u-text-1">Фо​​рмат обучения</h6>
+          <h6 class="u-text u-text-default u-text-grey-75 u-text-2">Онлайн</h6>
+        </div>
+      </div>
+      <div class="u-border-2 u-border-grey-10 u-container-style u-group u-opacity u-opacity-50 u-radius-16 u-shape-round u-white u-group-2">
+        <div class="u-container-layout">
+          <h6 class="u-text u-text-default u-text-grey-75 u-text-3">Сам</h6>
+          <h6 class="u-text u-text-grey-60 u-text-4">Подбери расписание</h6>
+        </div>
+      </div>
+      <div class="u-align-left u-border-2 u-border-grey-10 u-container-style u-group u-opacity u-opacity-50 u-radius-16 u-shape-round u-white u-group-3">
+        <div class="u-container-layout">
+          <h6 class="u-text u-text-default u-text-grey-75 u-text-5">24/7</h6>
+          <h6 class="u-text u-text-grey-60 u-text-6">Доступ к гитаре</h6>
+        </div>
+      </div>
+      <div class="u-container-style u-group u-opacity u-opacity-50 u-palette-3-base u-radius-16 u-shape-round u-group-4">
+        <div class="u-container-layout u-container-layout-4">
+          <h6 class="u-text u-text-grey-60 u-text-7">Поторопись</h6>
+          <h6 class="u-text u-text-black u-text-default u-text-8">Количество мест ограничено!</h6>
+        </div>
+      </div>
+      <div class="u-container-style u-group u-opacity u-opacity-60 u-radius-38 u-shape-round u-white u-group-5" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="250">
+        <div class="u-container-layout u-container-layout-5">
+          <p class="u-text u-text-default u-text-9" data-animation-name="customAnimationIn" data-animation-duration="1000"> Ваш ключ к миру музыки — откройте дверь в <span style="font-weight: 700;">гармонию</span> и <span style="font-weight: 700;">мастерство</span>. Исследуйте возможности, выберите свой путь, и пусть каждая <span style="font-weight: 700;">нота</span> ведет вас к <span style="font-weight: 700;">успеху</span>!
+          </p>
+        </div>
       </div>
     </section>
-    <section class="u-clearfix u-custom-color-4 u-section-2" id="sec-6681">
+    <section class="u-clearfix u-gradient u-section-2" id="sec-7693">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-expanded-width u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-list-item u-palette-3-light-2 u-radius-20 u-repeater-item u-shape-round u-video-cover">
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                <img src="{% static 'images/11.jpg' %}" alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-1" data-image-width="6000" data-image-height="4000">
-                <h5 class="u-align-center u-text u-text-default u-text-palette-3-dark-3 u-text-1">Первый курс</h5>
-                <p class="u-align-center u-text u-text-default u-text-palette-2-base u-text-2">799 руб.</p>
-                <p class="u-align-center u-text u-text-default u-text-3">Присоединяйтесь к нашему стартовому курсу по гитаре, где мы начинаем с самого начала. Забудьте об аккордах, как о сложной науке – мы разложим их на простые ноты.</p>
-                <a href="{% url 'courses' %}" class="u-align-center u-btn u-button-style u-palette-2-base u-btn-1">Купить курс</a>
+        <div class="u-container-style u-group u-radius-31 u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <img class="u-image u-image-round u-radius-20 u-image-1" src="{% static 'images/2.jpg' %}" alt="" data-image-width="1920" data-image-height="1280" data-animation-name="customAnimationIn" data-animation-duration="1000">
+            <h6 class="u-text u-text-default u-text-1">От базов к басам</h6>
+            <p class="u-text u-text-default u-text-2"> Присоединяйтесь к нашему <span style="font-weight: 700;">стартовому</span> курсу по гитаре, где мы начинаем с самого начала. Забудьте об <span style="font-weight: 700;">аккордах</span>, как о сложной науке – мы разложим их на простые <span style="font-weight: 700;">ноты</span>.
+            </p>
+            <a href="{% url 'course-1' %}" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-12 u-btn-1">Перейти</a>
+          </div>
+        </div>
+        <div class="u-container-style u-group u-radius-31 u-shape-round u-white u-group-2">
+          <div class="u-container-layout u-container-layout-2">
+            <img class="u-image u-image-round u-radius-20 u-image-2" src="{% static 'images/Шаг-вперёд!.jpg' %}" alt="" data-image-width="6000" data-image-height="4000" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="250">
+            <h6 class="u-text u-text-default u-text-3"> Шаг вперёд</h6>
+            <p class="u-text u-text-default u-text-4"> Для тех, кто уже овладел <span style="font-weight: 700;">основами</span>, представляем <span style="font-weight: 700;">"Шаг Вперёд"</span> - наш <span style="font-weight: 700;">новый</span> курс для тех, кто стремится к большему в мире <span style="font-weight: 700;">гитары</span>.
+            </p>
+            <a href="" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-12 u-btn-2">Перейти</a>
+          </div>
+        </div>
+        <div class="u-container-style u-group u-radius-31 u-shape-round u-white u-group-3">
+          <div class="u-container-layout u-container-layout-3">
+            <img class="u-image u-image-round u-radius-20 u-image-3" src="{% static 'images/Виртуоз.jpg' %}" alt="" data-image-width="1920" data-image-height="1280" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="500">
+            <h6 class="u-text u-text-default u-text-5">Виртуоз</h6>
+            <p class="u-text u-text-default u-text-6"> Идеален для <span style="font-weight: 700;">опытных</span> гитаристов, стремящихся к совершенству. Освойте <span style="font-weight: 700;">продвинутые</span> техники, экспериментируйте со звуком и мастерите сложные <span style="font-weight: 700;">соло</span>.
+            </p>
+            <a href="" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-12 u-btn-3">Перейти</a>
+          </div>
+        </div>
+        <div class="u-container-style u-group u-palette-3-light-3 u-radius-31 u-shape-round u-group-4">
+          <div class="u-container-layout u-container-layout-4">
+            <div class="u-align-left u-border-4 u-border-palette-3-base u-container-style u-group u-radius-13 u-shape-round u-white u-group-5">
+              <div class="u-container-layout u-valign-middle u-container-layout-5">
+                <img class="u-image u-image-contain u-image-default u-image-4" src="{% static 'images/Гитара-1.png' %}" alt="" data-image-width="481" data-image-height="1200">
               </div>
             </div>
-            <div class="u-container-style u-list-item u-palette-3-light-2 u-radius-20 u-repeater-item u-shape-round u-video-cover">
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <img src="{% static 'images/2.jpg' %}" alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-2" data-image-width="6000" data-image-height="4000">
-                <h5 class="u-align-center u-text u-text-default u-text-palette-3-dark-3 u-text-4">Шаг вперёд</h5>
-                <p class="u-align-center u-text u-text-default u-text-palette-2-base u-text-5">999 руб.</p>
-                <p class="u-align-center u-text u-text-default u-text-6">Для тех, кто уже овладел основами, представляем "Шаг Вперёд" - наш новый курс для тех, кто стремится к большему в мире гитары.</p>
-                <a href="{% url 'courses' %}" class="u-align-center u-btn u-button-style u-palette-2-base u-btn-2">Купить курс</a>
+            <div class="u-align-left u-border-4 u-border-palette-3-base u-container-style u-group u-radius-13 u-shape-round u-white u-group-6">
+              <div class="u-container-layout u-valign-middle u-container-layout-6">
+                <img class="u-image u-image-contain u-image-default u-image-5" src="{% static 'images/Гитара-2.png' %}" alt="" data-image-width="480" data-image-height="1200">
               </div>
             </div>
-            <div class="u-container-style u-list-item u-palette-3-light-2 u-radius-20 u-repeater-item u-shape-round u-video-cover">
-              <div class="u-container-layout u-similar-container u-container-layout-3">
-                <img alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-3" data-image-width="2000" data-image-height="1333" src="images/90fc53c9.svg">
-                <h5 class="u-align-center u-text u-text-default u-text-palette-3-dark-3 u-text-7">Название курса</h5>
-                <p class="u-align-center u-text u-text-default u-text-palette-2-base u-text-8">1499 руб.</p>
-                <p class="u-align-center u-text u-text-default u-text-9">Описание...<br>
-                  <br>
-                  <br>
-                </p>
-                <a href="{% url 'courses' %}" class="u-align-center u-btn u-button-style u-palette-2-base u-btn-3">Купить курс</a>
+            <div class="u-border-4 u-border-palette-3-base u-container-style u-group u-radius-13 u-shape-round u-white u-group-7">
+              <div class="u-container-layout u-valign-middle u-container-layout-7">
+                <img class="u-image u-image-contain u-image-default u-image-6" src="{% static 'images/Чехол-1.png' %}" alt="" data-image-width="819" data-image-height="1776">
               </div>
             </div>
-            <div class="u-container-style u-list-item u-palette-3-light-2 u-radius-20 u-repeater-item u-shape-round u-video-cover">
-              <div class="u-container-layout u-similar-container u-container-layout-4">
-                <img alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-4" data-image-width="2000" data-image-height="1333" src="images/90fc53c9.svg">
-                <h5 class="u-align-center u-text u-text-default u-text-palette-3-dark-3 u-text-10">Название курса</h5>
-                <p class="u-align-center u-text u-text-default u-text-palette-2-base u-text-11">0 руб.</p>
-                <p class="u-align-center u-text u-text-default u-text-12">Описание...</p>
-                <a href="{% url 'courses' %}" class="u-align-center u-btn u-button-style u-palette-2-base u-btn-4">Смотреть бесплатно!</a>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-palette-3-light-2 u-radius-20 u-repeater-item u-shape-round u-video-cover">
-              <div class="u-container-layout u-similar-container u-container-layout-5">
-                <img alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-5" data-image-width="2000" data-image-height="1333" src="images/90fc53c9.svg">
-                <h5 class="u-align-center u-text u-text-default u-text-palette-3-dark-3 u-text-13">Название курса</h5>
-                <p class="u-align-center u-text u-text-default u-text-palette-2-base u-text-14">0 руб.</p>
-                <p class="u-align-center u-text u-text-default u-text-15">Описание...</p>
-                <a href="{% url 'courses' %}" class="u-align-center u-btn u-button-style u-palette-2-base u-btn-5">Смотреть бесплатно!</a>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-palette-3-light-2 u-radius-20 u-repeater-item u-shape-round u-video-cover">
-              <div class="u-container-layout u-similar-container u-container-layout-6">
-                <img alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-6" data-image-width="2000" data-image-height="1333" src="images/90fc53c9.svg">
-                <h5 class="u-align-center u-text u-text-default u-text-palette-3-dark-3 u-text-16">Название курса</h5>
-                <p class="u-align-center u-text u-text-default u-text-palette-2-base u-text-17">0 руб.</p>
-                <p class="u-align-center u-text u-text-default u-text-18">Описание...</p>
-                <a href="{% url 'courses' %}" class="u-align-center u-btn u-button-style u-palette-2-base u-btn-6">Смотреть бесплатно!</a>
-              </div>
-            </div>
+            <h1 class="u-text u-text-default u-text-7">Интернет магазин<br>Not<span class="u-text-palette-2-base">a</span>School
+            </h1>
+            <a href="" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-base u-radius-15 u-btn-4">Перейти в магазин</a>
+            <h6 class="u-text u-text-default u-text-8">Акустические гитары</h6>
+            <h6 class="u-text u-text-default u-text-9">Гитарные аксессуары</h6>
+            <h6 class="u-align-left u-text u-text-default u-text-10">Gig Bag чехол для<br>гитары
+            </h6>
+            <h6 class="u-align-left u-text u-text-11">Акустические гитары</h6>
+            <h6 class="u-align-left u-text u-text-default u-text-12">LC-3400</h6>
+            <h6 class="u-align-left u-text u-text-default u-text-13">9990 ₽</h6>
+            <h6 class="u-align-left u-text u-text-default u-text-14">LC-3400</h6>
+            <h6 class="u-align-left u-text u-text-default u-text-15">9990 ₽</h6>
+            <h6 class="u-align-left u-text u-text-default u-text-16">1590 ₽</h6>
           </div>
         </div>
       </div>
     </section>
-    
-    
-    
     <footer class="u-clearfix u-footer u-grey-80" id="sec-4eee"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <p class="u-text u-text-default u-text-1">NotaSchool 2023</p>
       </div></footer>

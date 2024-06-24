@@ -6,7 +6,9 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Разборы</title>
+    <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/nicepage-u.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Разборы.css' %}" media="screen">
     <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
@@ -65,7 +67,15 @@
           </div>
         </nav>
         
-        <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+        {% if user.is_authenticated %}
+  <!-- Показываем иконку профиля для авторизованных пользователей -->
+  <img class="u-hover-feature u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{% static 'images/Профиль.png' %}" alt="" data-image-width="512" data-image-height="512" data-href="{% url 'profile' %}">
+
+  {% else %}
+  <!-- Показываем кнопку "Вход" для неавторизованных пользователей -->
+  <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+{% endif %}
+
       </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
 border: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
 }</style>
@@ -145,117 +155,26 @@ border: top right bottom left !important; border-color: #404040 !important; bord
             <div class="u-container-style u-shape-rectangle u-tab-active u-tab-pane u-tab-pane-1" id="tab-76f3" role="tabpanel" aria-labelledby="link-tab-76f3">
               <div class="u-container-layout u-container-layout-1">
                 <div class="video-row">
-                  <div class="video-card">
-                  <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" onclick="playVideo()" width="300" height="200" style="border-radius: 10px;" poster="{% static 'images/Разбор-1.jpg' %}" data-setup="{}">
-                    <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
-                    <!-- Добавьте другие источники видео для поддержки разных браузеров -->
-                    <p class="vjs-no-js">
-                      Чтобы просмотреть это видео, пожалуйста, включите JavaScript и рассмотрите возможность обновления вашего браузера до версии, 
-                      которая <a href="https://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5 видео</a>
-                    </p>
-                  </video>
-                  <div class="video-info">
-                    <h4 class="video-title">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4>
-                    <p class="video-author">NotaSchool</p>
-                    <div class="video-meta">
-                      <span class="video-views">494 тыс. просмотров</span>
-                      <span class="video-time">• 21 час назад</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="video-card">
-                  <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" onclick="playVideo()" width="300" height="200" style="border-radius: 10px;" poster="{% static 'images/Разбор-1.jpg' %}" data-setup="{}">
-                    <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
-                    <!-- Добавьте другие источники видео для поддержки разных браузеров -->
-                    <p class="vjs-no-js">
-                      Чтобы просмотреть это видео, пожалуйста, включите JavaScript и рассмотрите возможность обновления вашего браузера до версии, 
-                      которая <a href="https://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5 видео</a>
-                    </p>
-                  </video>
-                  <div class="video-info">
-                    <h4 class="video-title">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4>
-                    <p class="video-author">NotaSchool</p>
-                    <div class="video-meta">
-                      <span class="video-views">494 тыс. просмотров</span>
-                      <span class="video-time">• 21 час назад</span>
-                    </div>
-                  </div>
-                </div>
-                  <div class="video-card">
-                    <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" onclick="playVideo()" width="300" height="200" style="border-radius: 10px;" poster="{% static 'images/Разбор-1.jpg' %}" data-setup="{}">
-                      <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
-                      <!-- Добавьте другие источники видео для поддержки разных браузеров -->
-                      <p class="vjs-no-js">
-                        Чтобы просмотреть это видео, пожалуйста, включите JavaScript и рассмотрите возможность обновления вашего браузера до версии, 
-                        которая <a href="https://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5 видео</a>
-                      </p>
-                    </video>
-                    <div class="video-info">
-                      <h4 class="video-title">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4>
-                      <p class="video-author">NotaSchool</p>
-                      <div class="video-meta">
-                        <span class="video-views">494 тыс. просмотров</span>
-                        <span class="video-time">• 21 час назад</span>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="video-row">
-                <div class="video-card">
-                  <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" onclick="playVideo()" width="300" height="200" style="border-radius: 10px;" poster="{% static 'images/Разбор-1.jpg' %}" data-setup="{}">
-                    <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
-                    <!-- Добавьте другие источники видео для поддержки разных браузеров -->
-                    <p class="vjs-no-js">
-                      Чтобы просмотреть это видео, пожалуйста, включите JavaScript и рассмотрите возможность обновления вашего браузера до версии, 
-                      которая <a href="https://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5 видео</a>
-                    </p>
-                  </video>
-                  <div class="video-info">
-                    <h4 class="video-title">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4>
-                    <p class="video-author">NotaSchool</p>
-                    <div class="video-meta">
-                      <span class="video-views">494 тыс. просмотров</span>
-                      <span class="video-time">• 21 час назад</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="video-card">
-                  <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" onclick="playVideo()" width="300" height="200" style="border-radius: 10px;" poster="{% static 'images/Разбор-1.jpg' %}" data-setup="{}">
-                    <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
-                    <!-- Добавьте другие источники видео для поддержки разных браузеров -->
-                    <p class="vjs-no-js">
-                      Чтобы просмотреть это видео, пожалуйста, включите JavaScript и рассмотрите возможность обновления вашего браузера до версии, 
-                      которая <a href="https://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5 видео</a>
-                    </p>
-                  </video>
-                  <div class="video-info">
-                    <h4 class="video-title">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4>
-                    <p class="video-author">NotaSchool</p>
-                    <div class="video-meta">
-                      <span class="video-views">494 тыс. просмотров</span>
-                      <span class="video-time">• 21 час назад</span>
-                    </div>
-                  </div>
-                </div>
-                  <div class="video-card">
-                    <video id="my-video" class="video-js vjs-theme-sea" controls preload="auto" onclick="playVideo()" width="300" height="200" style="border-radius: 10px;" poster="{% static 'images/Разбор-1.jpg' %}" data-setup="{}">
-                      <source src="{% static 'videos/Разбор-1.mp4' %}" type="video/mp4" />
-                      <!-- Добавьте другие источники видео для поддержки разных браузеров -->
-                      <p class="vjs-no-js">
-                        Чтобы просмотреть это видео, пожалуйста, включите JavaScript и рассмотрите возможность обновления вашего браузера до версии, 
-                        которая <a href="https://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5 видео</a>
-                      </p>
-                    </video>
-                    <div class="video-info">
-                      <h4 class="video-title">В ТРАВЕ СИДЕЛ КУЗНЕЧИК!</h4>
-                      <p class="video-author">NotaSchool</p>
-                      <div class="video-meta">
-                        <span class="video-views">494 тыс. просмотров</span>
-                        <span class="video-time">• 21 час назад</span>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+                  {% if not videos %}Нет видео{% endif %}
+                  {% for video in videos %}
+                  <div class="video-card video-clickable" data-video-id="{{ video.id }}">
+    <video id="video-{{ video.id }}" class="video-js vjs-theme-sea" controls preload="auto" width="300" height="200" style="border-radius: 10px;" poster="{{ video.preview_url.url }}" data-setup="{}">
+      <source src="{{ video.video_url.url }}" type="video/mp4" />
+      <p class="vjs-no-js">
+        Чтобы просмотреть это видео, пожалуйста, включите JavaScript и рассмотрите возможность обновления вашего браузера до версии, которая <a href="https://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5 видео</a>.
+      </p>
+    </video>
+    <div class="video-info">
+      <h4 class="video-title">{{ video.title }}</h4>
+      <p class="video-author">{{ video.author.username }}</p>
+      <div class="video-meta">
+        <span class="video-views">{{ video.view_count }} {{ video.views_word }}</span>
+        <span class="video-time">{{ video.creation_date }}</span>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+              
             </div>
             <div class="u-container-style u-shape-rectangle u-tab-pane u-tab-pane-2" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
               <div class="u-container-layout u-container-layout-2"></div>
@@ -317,14 +236,23 @@ border: top right bottom left !important; border-color: #404040 !important; bord
           });
         });
         // Обработчик клика на видео
-  function playVideo() {
-    window.location.href = '{% url "player" %}'; // перенаправляем на URL страницы "Плеер"
-  }
+
 
   // Добавляем обработчик клика ко всем видео
   document.querySelectorAll('.video-js').forEach(function(video) {
     video.addEventListener('click', playVideo);
   });
       </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.video-clickable').forEach(function(element) {
+    element.addEventListener('click', function() {
+      var videoId = this.getAttribute('data-video-id'); // Получаем ID видео
+      window.location.href = `/разборы/плеер/${videoId}/`; // Перенаправляем на URL страницы плеера с ID видео
+    });
+  });
+});
+        </script>
+        
       
 </body></html>

@@ -6,6 +6,7 @@
     <meta name="keywords" content="INTUITIVE">
     <meta name="description" content="">
     <title>Главная</title>
+    <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Главная.css' %}" media="screen">
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
@@ -65,10 +66,15 @@
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-        <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
-      </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
-borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
-}</style></header>
+        {% if user.is_authenticated %}
+  <!-- Показываем иконку профиля для авторизованных пользователей -->
+  <img class="u-hover-feature u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{% static 'images/Профиль.png' %}" alt="" data-image-width="512" data-image-height="512" data-href="{% url 'profile' %}">
+
+  {% else %}
+  <!-- Показываем кнопку "Вход" для неавторизованных пользователей -->
+  <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
+{% endif %}
+      </div></header>
 
     <section class="u-align-center u-clearfix u-image u-section-1" id="sec-5d0a">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -100,24 +106,24 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
         <li data-u-target="#carousel-292c" class="u-grey-30" data-u-slide-to="2"></li>
       </ol>
       <div class="u-carousel-inner" role="listbox">
-        <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-1" style="background-image: url('{% static 'images/11.jpg' %}');" data-image-width="6000" data-image-height="4000">
+        <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-1" style="background-image:linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{% static 'images/2.jpg' %}');" data-image-width="6000" data-image-height="4000">
           <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-text u-text-default u-title u-text-1">Первый курс</h1>
+            <h1 class="u-text u-text-default u-title u-text-1">От базов к басам</h1>
             <p class="u-large-text u-text u-text-variant u-text-2">Привет, будущие рок-звезды! Присоединяйтесь к нашему стартовому курсу по гитаре, где мы начинаем с самого начала. Забудьте об аккордах, как о сложной науке – мы разложим их на простые ноты. Даже ваша кофеварка начнет играть в такт!&nbsp;&nbsp;</p>
-            <a href="{% url 'courses' %}" class="u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">Купить курс!</a>
+            <a href="{% url 'course-1' %}" class="u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">Купить курс!</a>
           </div>
         </div>
-        <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2" style="background-image: url('{% static 'images/2.jpg' %}');" data-image-width="6000" data-image-height="4000">
+        <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2" style="background-image:linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{% static 'images/Шаг-вперёд!.jpg' %}');" data-image-width="6000" data-image-height="4000">
           <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-text u-text-default u-title u-text-1">Шаг вперёд</h1>
+            <h1 class="u-text u-text-default u-title u-text-1">Шаг Вперёд</h1>
             <p class="u-large-text u-text u-text-variant u-text-2">Привет, музыкальные искатели гармонии! Для тех, кто уже овладел основами, представляем "Шаг Вперёд" - наш новый курс для тех, кто стремится к большему в мире гитары. Поднимитесь на новый уровень с индивидуальными мастер-классами и персональными рекомендациями.</p>
             <a href="{% url 'courses' %}" class="u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">Купить курс</a>
           </div>
         </div>
-        <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3" style="background-image: url('{% static 'images/2.jpg' %}');" data-image-width="6000" data-image-height="4000">
+        <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3" style="background-image:linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{% static 'images/Виртуоз.jpg' %}');" data-image-width="6000" data-image-height="4000">
           <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-text u-text-default u-title u-text-1">Профешн эдишн</h1>
-            <p class="u-large-text u-text u-text-variant u-text-2">Текст.</p>
+            <h1 class="u-text u-text-default u-title u-text-1">Виртуоз</h1>
+            <p class="u-large-text u-text u-text-variant u-text-2">​Курс "Виртуоз" создан для уверенных гитаристов, желающих поднять своё искусство на новую высоту. Здесь вы погрузитесь в продвинутые техники игры, эксперименты со звуком и сложные соло.</p>
             <a href="{% url 'courses' %}" class="u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">Купить курс</a>
           </div>
         </div>

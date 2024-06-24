@@ -6,6 +6,7 @@
     <meta name="keywords" content="Регистрация">
     <meta name="description" content="">
     <title>Регистрация</title>
+    <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Регистрация.css' %}" media="screen">
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
@@ -108,30 +109,37 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
 
             <div class="u-form-send-message u-form-send-success">Спасибо! Вы успешно зарегистрированны!</div>
             <script type="text/javascript">
-              document.addEventListener("DOMContentLoaded", function() {
-                  var form = document.querySelector("form[name='registrationForm']");
-                  form.addEventListener("submit", function(event) {
-                      event.preventDefault();
-                      var formData = new FormData(form);
-                      fetch("{% url 'register' %}", {
-                          method: 'POST',
-                          body: formData,
-                          headers: {
-                              'X-CSRFToken': '{{ csrf_token }}'
-                          }
-                      })
-                      .then(response => response.json())
-                      .then(data => {
-                          if (data.success) {
-                            window.location.href = '{% url "user_home" %}';
-                          } else {
-                            var errorElement = document.querySelector(".u-form-send-error");
-    errorElement.textContent = "Unable to send your message. Please fix errors then try again.";
-    console.log(data.errors);
-                          }
-                      });
-                  });
-              });
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.querySelector("form[name='registrationForm']");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(form);
+        fetch("{% url 'register' %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+              console.log('Перенаправление на главную страницу');
+                // Если регистрация прошла успешно, перенаправляем на главную страницу
+                window.location.href = '{% url "home" %}';
+            } else {
+                // Если произошла ошибка, выводим сообщение об ошибке
+                alert(data.errors); // Или другой способ отображения ошибок пользователю
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+
+
+
           </script>
 
 <script>

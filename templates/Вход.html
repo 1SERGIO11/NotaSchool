@@ -6,6 +6,7 @@
     <meta name="keywords" content="Вход">
     <meta name="description" content="">
     <title>Вход</title>
+    <link rel="icon" href="{% static 'images/Icon.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Вход.css' %}" media="screen">
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
@@ -62,9 +63,7 @@
           </div>
         </nav>
         <a href="{% url 'login' %}" class="u-border-2 u-border-hover-palette-3-light-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-none u-radius-50 u-btn-2"> &nbsp;Вход</a>
-      </div><style class="u-sticky-style" data-style-id="436a">.u-sticky-fixed.u-sticky-436a:before, .u-body.u-sticky-fixed .u-sticky-436a:before {
-borders: top right bottom left !important; border-color: #404040 !important; border-width: 2px !important
-}</style></header>
+      </div></header>
     <section class="u-align-center u-clearfix u-image u-section-1" style="background-image: url('{% static 'images/Вход.jpg' %}');" id="" data-image-width="5184" data-image-height="3456">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h2 class="u-text u-text-default u-text-white u-text-1">Вход</h2>
@@ -100,7 +99,7 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
                 .then(data => {
                     console.log(data); // Добавленный код для логирования
                     if (data.success) {
-                        window.location.href = '{% url "user_home" %}'; // Перенаправление на страницу пользователя
+                        window.location.href = '{% url "home" %}'; // Перенаправление на страницу пользователя
                     } else {
                         // Обработка ошибок
                         var errorElement = document.querySelector(".u-form-send-error");
@@ -113,8 +112,6 @@ borders: top right bottom left !important; border-color: #404040 !important; bor
             
             
           </script>
-            <input type="hidden" value="" name="recaptchaResponse">
-            <input type="hidden" name="formServices" value="0bbb107b-514e-db7a-86d1-f92e85e7ded2">
           </form>
         </div>
         <p class="u-text u-text-default u-text-2">
