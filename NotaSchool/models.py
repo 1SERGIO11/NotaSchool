@@ -16,7 +16,7 @@ class Course(models.Model):
 class Tariff(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='tariffs')
     name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)  # Используйте Decimal для точного представления денежных сумм
+    price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return f"{self.name} - {self.course.name}"
